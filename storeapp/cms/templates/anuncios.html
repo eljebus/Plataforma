@@ -1,0 +1,89 @@
+ {% extends "adminTemplate.html" %}
+
+  {% block estilos %}
+    {% load static from staticfiles %}
+     <link rel="stylesheet" href="{% static "css/panel/productos.css" %}" />
+     <link rel="stylesheet" href="{% static "css/panel/anuncios.css" %}" />
+     <style type="text/css" media="screen">
+       #container
+       {
+        width: 72.1%;
+        display: inline-block;
+        padding: 0;
+        margin-left: 1em;
+        margin-top: 1em;
+       }
+       #contenedor-tabla{
+        width: 100%;
+        margin:0;
+       }
+     </style>
+  {% endblock %}
+
+	{% block content %}
+
+
+   
+        <section id='contenedor-tabla'>
+			<a href="/Anuncio/nuevo/" title="">
+	            <p class='boton top-none'>
+	            	<label class='icon-plus'></label>
+	            	Añadir Anuncio
+	            </p>
+	        </a>
+            <table id='productos' cellspacing='0'>
+
+            <tr  id='cabecera' height='20'>
+              <td width='90' >Codigo</td>
+              <td width='200' >Nombre</td>
+              <td  >Descripción</td>
+              <td width='90' >Tipo</td>
+              <td width='60' >Eliminar</td>
+            </tr>
+
+          	{% for a in anuncios %}
+      			   <tr>
+                  <td >
+                  	{{a.idanuncios}}
+                  </td>
+                  <td >
+                  	{{a.nombre}}
+                  </td>
+                 
+                  <td >
+                  	{{a.descripcion|safe}}
+                  </td> 
+                  <td >
+                      {{a.tipo}}
+                  </td>
+                  <td class='centrado'> 
+                    <label class='icon-happy iconosp color-verde inline delete'  title='Eliminar' data-id='{{a.idanuncios}}' data-elemento='Anuncios'></label>
+                  </td>
+                </tr>
+
+                 {% empty %}
+                  <tr>
+                    <td colspan='7'>
+                      No se encontraron Anuncios {{status}} 
+                      <label class='icon-sad color-naranja'></label>
+                    </td>
+                  <tr>
+
+      			{% endfor %}
+                
+
+            </table>
+          
+        </section>
+
+        
+
+    {% endblock %}
+
+    {% block scripts %}
+
+      <script src="{% static "js/panel/eliminar.js" %}"></script>
+
+    {% endblock %}
+
+

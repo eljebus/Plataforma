@@ -1,0 +1,98 @@
+ {% extends "adminTemplate.html" %}
+
+  {% block estilos %}
+  {% load static from staticfiles %}
+    
+     <link rel="stylesheet" href="{% static "css/panel/productos.css" %}" />
+  {% endblock %}
+
+	{% block content %}
+       
+      <div class='color-rojo'>
+        <center>
+          {{limite|safe}}   
+        </center>     
+      </div>
+        <section id='contenedor-tabla'>
+
+            
+            <table id='productos' cellspacing='0'>
+
+            <tr  id='cabecera' height='20'>
+              <td width='90' >Codigo</td>
+              <td width='400' >Nombre</td>
+              <td width='150' >Precio</td>
+              <td width='150' > Unidad</td>
+             
+              <td width='70' >Editar</td>
+              
+              <td width='80' >Eliminar</td>
+            </tr>
+
+          	{% for p in productos %}
+			   <tr>
+                <td >
+                	{{p.idproductos}}
+                </td>
+                <td >
+                	{{p.nombre}}
+                </td>
+          
+                <td class='color-verde negritas'>
+                	$ {{p.precio}}
+                </td>
+                <td >
+                	{{p.unidad|safe}}
+                </td>
+                <td class='centrado color-naranja'>
+                  <a href="/producto/{{p.idproductos}}/" title="Modificar" class='modify'>
+                    <label class='icon-cog inline iconosp'></label>
+                  </a>
+                	
+                </td>
+                <td class='centrado'> 
+                  <label class='icon-happy iconosp color-verde inline delete' data-id='{{p.idproductos}}' data-elemento='Productos' title='Eliminar'></label>
+                </td>
+              </tr>
+              {% empty %}
+              <tr><td colspan="7">No se encontraron Productos <label class="icon-sad color-naranja"></label></td></tr>
+			{% endfor %}
+              
+
+            </table>
+
+            <div  id='paginas'>
+              {% if productos.has_previous %}
+                  <a href="/productos/?page={{ productos.previous_page_number }}"><label class='icon-arrow-left'></label></a>
+              {% endif %}
+
+              <span class="current">
+                  {{ productos.number }} de {{ productos.paginator.num_pages }}
+              </span>
+
+              {% if productos.has_next %}
+                  <a href="/productos/?page={{ productos.next_page_number }}">
+                    <div class='right inline'>
+                      <label class='icon-arrow-left'></label>
+                    </div>
+                    
+                  </a>
+              {% endif %}
+          </div>
+        
+        </section>
+
+
+    
+
+
+
+
+    {% endblock %}
+
+    {% block scripts %}
+
+      <script src="{% static "js/panel/eliminar.js" %}"></script>
+
+    {% endblock %}
+

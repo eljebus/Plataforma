@@ -1,0 +1,75 @@
+ {% extends "adminTemplate.html" %}
+
+  {% block estilos %}
+    {% load static from staticfiles %}
+
+     <link rel="stylesheet" href="{% static "css/panel/tiendas.css" %}" />
+
+     <link rel="stylesheet" href="{% static "css/editor.css" %}" />
+     <style>
+
+     </style>
+  {% endblock %}
+
+	{% block content %}
+
+   	<section id='container-content'>
+      <p class='listo {{color}}' style='display:{{ver}}'>
+        <label class='{{icono}}'> </label>{{letrero}}
+      </p>
+
+   		<form action="/Tienda/" method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+   			<input type="text" name="nombre"  disabled=true value="{{tienda.nombre}}">
+        <input type="text" name="mail" value="{{tienda.mail}}" placeholder='Mail de contacto'>
+   			<input type="text" name="telefono" value="{{tienda.telefono}}" class='doble' placeholder='teléfono'>
+        <input type="text" name="rfc" value="{{tienda.rfc}}" class='doble' placeholder='RFC'><br>
+        <textarea name="descripcion" placeholder='Descripción detallada de producto' class='editor' required>
+          {% if tiendaDescripcion %}
+            {% autoescape off %}{{ tiendaDescripcion }}{% endautoescape %}
+          {% else %}
+            Descripcion Detallada
+          {% endif %}
+        </textarea>
+         <ul id='imagenes-form'class='list-none inline ultimo'>
+       
+               <div id='tumbs-container' class='inline'>
+                  <li class='logo'>
+                         <img src="{% static logo%}">
+                  </li>
+               </div>
+
+
+                <li class='ultimo '>
+                  <div id='container-spot'>
+                     <label class='icon-plus iconos'>
+                      
+                     </label>
+                    Cambiar Logo
+                  </div>
+                  <input type="file" name="logo" id='add-imagen'>
+
+                 
+                </li>
+              </ul><br><br><br>
+              <input type="text" name="direccion" id='address' value="{{tienda.direccion}}" placeholder='Dirección'>
+              <div ID='mapa-interno'>
+        
+              </div>
+
+              <input type="submit" name="" value="Guardar Cambios">
+   		</form>
+   		
+   	</section>
+      
+
+    {% endblock %}
+   {% block scripts %}
+  <script src="{% static "js/editor.js" %}"></script>
+   <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=true"></script>
+   <script src="{% static "js/mapa.js" %}" ></script>
+
+   <script src="{% static "js/panel/imagenes.js" %}" ></script>
+   <script src="{% static "js/panel/tienda.js" %}" ></script>
+
+  {% endblock %}

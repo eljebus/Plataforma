@@ -1,0 +1,254 @@
+
+
+
+{% extends "plantilla1/template.html" %}
+    
+    {% block estilos %}
+       {% load static from staticfiles %}
+      <link rel="stylesheet" type="text/css" href="{% static "css/tiendas/plantilla1/index.css" %}">
+      <link rel="stylesheet" href="{% static "css/tema.min.css" %}" />
+      <link rel="stylesheet" href="{% static "css/tiendas/plantilla1/proceso.css" %}" />
+      <style type="text/css">
+  #envios label,.formaPago label {
+        display: inline-block;
+        cursor: pointer;
+        position: relative;
+        padding-left: 25px;
+        margin-right: 15px;
+        font-size: 16px;
+      }
+      #envios input[type=radio],
+      .formaPago input[type=radio],
+      .formaPago input[type=checkbox] {
+        display: none;
+      }
+      #envios label:before,
+      .formaPago label:before {
+        content: "";
+        display: inline-block;
+
+        width: 20px;
+        height: 16px;
+
+        margin-right: 10px;
+        position: absolute;
+        left: 0;
+        bottom: 1px;
+        background-color: #fff;
+       );
+      }
+
+      #envios label:before{
+   
+        border: solid 1px #a5a5a5;;
+      }
+
+     .radio label:before,#envios label:before {
+        border-radius: 0px;
+      }
+      .checkbox label {
+        margin-bottom: 10px;
+      }
+      .checkbox label:before {
+          border-radius: 0px;
+      }
+      #envios input[type=radio]:checked + label:before,
+     .formaPago input[type=radio]:checked + label:before {
+          content: "\2713";
+          color: black;
+          font-size: 20px;
+          font-weight: bold;
+          text-align: center;
+          line-height: 18px;
+      }
+  
+      .formaPago input[type=checkbox]:checked + label:before {
+        content: "\2713";
+        text-shadow: 1px 1px 1px rgba(0, 0, 0, .2);
+        font-size: 15px;
+        color: #000;
+        text-align: center;
+        line-height: 15px;
+      }
+      </style>
+    {% endblock %}
+
+    {% block content %}
+
+
+   
+
+
+      <style>
+        footer{
+          margin-bottom: -1.1em
+        }        
+      </style>
+      <section id='cotainer-content'>
+        <h1>Datos de Envio</h1>
+
+        <h2>{{cliente.nombre}}</h2>
+        <form id='send-form' >
+          {% csrf_token %}
+          <input type="text" placeholder="Direccion de Envio(todos los datos)" value='{{cliente.domicilio}}'required name='direccion'>
+          <input type="text" name="cp" placeholder='Código Postal' required value='{{cliente.cp}}'class='doble'>
+          <select name='estado' required class='doble ultimo' id='estado'>
+                <option value=''>
+                  Estado
+                </option>
+                <option value="Aguascalientes">Aguascalientes</option>
+                <option value="Baja California">Baja California</option>
+                <option value="Baja California Sur">Baja California Sur</option>
+                <option value="Campeche">Campeche</option>
+                <option value="Chiapas">Chiapas</option>
+                <option value="Chihuahua">Chihuahua</option>
+                <option value="Coahuila de Zaragoza">Coahuila</option>
+                <option value="Colima">Colima</option>
+                <option value="Distrito Federal">Distrito Federal</option>
+                <option value="Durango">Durango</option>
+                <option value="Guanajuato">Guanajuato</option>
+                <option value="Guerrero">Guerrero</option>
+                <option value="Hidalgo">Hidalgo</option>
+                <option value="Jalisco">Jalisco</option>
+                <option value="Mexico">Estado de México</option>
+                <option value="Michoacan de Ocampo">Michoacán</option>
+                <option value="Morelos">Morelos</option>
+                <option value="Nayarit">Nayarit</option>
+                <option value="Nuevo Leon">Nuevo León</option>
+                <option value="Oaxaca">Oaxaca</option>
+                <option value="Puebla">Puebla</option>
+                <option value="Queretaro de Arteaga">Querétaro</option>
+                <option value="Quintana Roo">Quintana Roo</option>
+                <option value="San Luis Potosi">San Luis Potosí</option>
+                <option value="Sinaloa">Sinaloa</option>
+                <option value="Sonora">Sonora</option>
+                <option value="Tabasco">Tabasco</option>
+                <option value="Tamaulipas">Tamaulipas</option>
+                <option value="Tlaxcala">Tlaxcala</option>
+                <option value="Veracruz">Veracruz</option>
+                <option value="Yucatan">Yucatán</option>
+                <option value="Zacatecas">Zacatecas</option>
+          </select>
+
+          <aside id='envios'> </aside>
+          
+          <div id='formaPago'>
+            <h3 class='top-none bottom-none'>Método de Pago</h3>
+
+              
+                
+            {% for m in metodos %}
+
+    
+    
+             
+
+
+
+              <div class='formaPago'>
+
+                
+              
+              <div class="radio">
+                  <input id="{{m.formapago.nombre}}" name="formaPago" type="radio" value="{{m.formapago.nombre}}"  class='inline medio' required title="Necesitas seleccionar una forma de Pago" >
+
+                  <label for="{{m.formapago.nombre}}">
+                     {% if m.formapago.nombre == 'Conekta'%}
+                        Tarjeta de Crédito/Débito
+                      {% elif m.formapago.nombre == 'Conekta Deposito Bancario' %}
+                        Deposito  en BANORTE
+                      {% elif m.formapago.nombre == 'Conekta Pagos OXXO' %}
+                        Pagos en sucursales OXXO
+                      {% elif m.formapago.nombre == 'Conekta Meses Sin Intereses' %}
+                        12 Meses sin Intereses
+                      {% endif %}
+                  </label>
+                    {% if m.formapago.nombre == 'Conekta'%}
+                      <img src="http://elcafecito.wido.mx/static/imagenes/pasarelas/tarjeta.png" class='inline medio'>
+                    {% else %}
+                      <img src="{{ m.formapago.logo }}" class='inline medio'>
+                    {% endif %}
+              
+                </div> 
+              
+               
+       
+
+              </div>
+
+              {% empty %}
+                <p><label class="icon-sad color-rojo"></label> Lo sentimos esta tienda no cuenta con Metodos de Pago 
+                <a href="/Contacto/" title="Contácto" class='inline color-azul'>
+                  Solicitalo al Vendedor
+                </a>
+                </p>
+               
+
+            {% endfor %}
+
+          </div>
+
+          <h2 class='inline top-none bottom-none' id='total'>Total 
+            {% load humanize %}
+
+            $ <span id='precio'>{{precio|floatformat:2|intcomma}}</span>
+
+          </h2>
+          <div id='terminos' class='inline medio'>
+                <label for="terminos" class='inline medio' >* Todas las compras son con la más alta seriedad</label>
+          </div>
+
+          <input type="submit" name="" class='boton' value="Comprar">
+
+        </form>
+        
+
+      </section>
+   
+    <div id='pagar' title='Pago Con Tarjeta'>
+      <form action="" method="POST" id="card-form"> 
+        <h4 class='bottom-none'>Transacciones Totalmente Seguras</h4>
+        <span id="card-errors"></span>
+          
+          <br>
+
+          <input type="text" size="20" name="card-number" placeholder='Número de Terjeta' required class='ultimo unico'/>
+       
+          <input type="text" size="4" name="card-cvc" placeholder='CVC' required/>
+          <input type="text" size="2" name="card-expiry-month" class='triple ultimo' placeholder='(MM)'/>
+          <span>/</span>
+          <input type="text" size="4" name="card-expiry-year" class='triple ultimo' placeholder='(AAAA)'/>
+        
+        <input type="submit" name="" class='boton' id='pagarBoton' value="Pagar Pedido">
+      </form>
+
+
+    </div>
+   <form action="/pagoOxxo/" method="POST" accept-charset="utf-8" id='oxxoForm' target='_parent'>
+    {% csrf_token %}
+   
+   </form>
+
+   <form action="/pagoBanco/" method="POST" accept-charset="utf-8" id='bancoForm'>
+    {% csrf_token %}
+   
+   </form>
+  
+  {% endblock %}
+
+  {% block scripts %}
+
+    <script>
+
+       var precio={{precio}};
+       var userName='{{cliente.nombre}}';
+       var llave='{{llave}}';
+    </script>     
+    <script type="text/javascript" src="https://conektaapi.s3.amazonaws.com/v0.3.0/js/conekta.js"></script>  
+    
+
+
+    <script src="{% static "js/tiendas/plantilla1/procesar.js" %}"></script>
+
+
+  {% endblock %}

@@ -1,0 +1,68 @@
+header input
+{
+	display: none;
+}
+header h2
+{
+	width: 506px
+}
+
+
+#container
+{
+	margin-left: 1em;
+	margin-top: 1em;
+	display: inline-block;
+	width: 72%;
+}
+#models-container{
+	background: white;
+	border:dashed 1px #a5a5a5;
+	margin-bottom: 2em;
+	padding: 0.5em;
+}
+#unit input{
+	margin-bottom: 1em;
+}
+#unit input[type='submit']{
+	margin-left: 29%;
+	margin-top: 1em;
+}
+
+
+.jqte {
+		margin-bottom: 2em;
+	}
+
+.ultimo
+{
+	position: relative;
+	cursor:pointer;
+}
+.ultimo #container-spot
+{
+	position: absolute;
+	top: 0;
+	left: 0;
+	text-align: center;
+	width: 100%;
+	height: 100%;
+	padding: 1em;
+	box-sizing:border-box;
+}
+.ultimo input
+{
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	top: 0;
+	left: 0;
+	opacity: 0;
+	cursor:pointer;
+}
+
+.unico-doble
+{
+	width: 44%;
+	display: inline-block;
+}

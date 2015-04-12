@@ -1,0 +1,86 @@
+    <footer>
+        
+  <div id='footer-container'>
+    <ul class='inline list-none inferiores' >
+      <li id='about'>
+        {% load static from staticfiles %}
+      <img src="{% static "imagenes/widoblanco.png" %}" height="55">
+        <article>
+        <p>
+           Wido es una plataforma
+        donde puedes crear tu propia tienda en internet fácil y rápidamente. 
+        </p>
+        <p>
+           Te ofrecemos diferentes planes para que elijas el que mejor se adapte a tus necesidades.
+           Incrementa tus ventas, expande tu mercado, atrae a mas clientes, comienza ya!.
+           
+
+
+        </p>
+        </article>
+      </li>
+
+      <li id='casos'>
+      
+        <h4 class='top-none'>Casos de Exito</h4>
+     
+      <ul class="list-none"id='clients'>
+        {% for t in tiendas %}
+        <li >
+          <figure>
+            {% load static from staticfiles %}
+            <img src="{% static t.logo %}">
+            <fieldset>
+             <article>
+               {{t.descripcion|striptags|truncatechars:80}}
+             </article>
+            </fieldset>
+          </figure>
+        </li>
+        {% empty %}
+          <li>
+            Proximamente
+          </li>
+
+        {% endfor %}
+      
+      </ul>
+      <a href="/Galeria/" title="Clientes">
+        <label class='button-gris'>
+          Ver mas
+        </label>
+      </a>
+    
+
+      </li>
+
+      <li class='ultimo'>
+        <h4 class='top-none'>Contacto</h4>
+
+       <form action="footer_submit" method="POST" id='contact-inferior' accept-charset="utf-8">
+        {% csrf_token %}
+         <input name="data[name]" placeholder="Nombre" class="name" type="text" id="name">
+        
+          <input name="data[e-mail]" placeholder="E-mail" type="text" id="e-mail">
+
+           <textarea name="data[mensaje]" placeholder="Escribe tu mensaje" class="mensaje" id="mensaje"></textarea>
+
+          <input type="submit" value="Enviar" class='boton'>
+       
+       </form>
+        
+      </li>
+    </ul>
+
+  </div>
+    
+        <aside id='inferior'>
+            
+      <div id='inferior-interno'>
+       <p>WIDO © 2014 &nbsp;|&nbsp; Todos los derechos Reservados</p> 
+      </div>
+       
+    
+        </aside>
+
+    </footer>

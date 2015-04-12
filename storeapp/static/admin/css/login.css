@@ -1,0 +1,97 @@
+/* LOGIN FORM */
+
+body.login {
+    background: #eee;
+}
+
+.login #container {
+    background: white;
+    border: 1px solid #ccc;
+    width: 28em;
+    min-width: 300px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 100px;
+}
+
+.login #content-main {
+    width: 100%;
+}
+
+.login form {
+    margin-top: 1em;
+}
+
+.login .form-row {
+    padding: 4px 0;
+    float: left;
+    width: 100%;
+}
+
+.login .form-row label {
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+    float: left;
+    width: 9em;
+    padding-right: 0.5em;
+    line-height: 2em;
+    text-align: right;
+    font-size: 1em;
+=======
+=======
+>>>>>>> 4157af1dcf4cac4cd7759dd2e39135ae038ddfbd
+=======
+>>>>>>> 8e10ecd6f2e11ef996d80983b30e3f4e8c02a214
+    padding-right: 0.5em;
+    line-height: 2em;
+    font-size: 1em;
+    clear: both;
+<<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> 9bf5737486435174b671ca752f3fb50ab92d0c1a
+=======
+>>>>>>> 4157af1dcf4cac4cd7759dd2e39135ae038ddfbd
+=======
+>>>>>>> 8e10ecd6f2e11ef996d80983b30e3f4e8c02a214
+    color: #333;
+}
+
+.login .form-row #id_username, .login .form-row #id_password {
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+    width: 14em;
+=======
+=======
+>>>>>>> 4157af1dcf4cac4cd7759dd2e39135ae038ddfbd
+=======
+>>>>>>> 8e10ecd6f2e11ef996d80983b30e3f4e8c02a214
+    clear: both;
+    padding: 6px;
+    width: 100%;
+    -webkit-box-sizing: border-box;
+       -moz-box-sizing: border-box;
+            box-sizing: border-box;
+<<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> 9bf5737486435174b671ca752f3fb50ab92d0c1a
+=======
+>>>>>>> 4157af1dcf4cac4cd7759dd2e39135ae038ddfbd
+=======
+>>>>>>> 8e10ecd6f2e11ef996d80983b30e3f4e8c02a214
+}
+
+.login span.help {
+    font-size: 10px;
+    display: block;
+}
+
+.login .submit-row {
+    clear: both;
+    padding: 1em 0 0 9.4em;
+}
+
+.login .password-reset-link {
+    text-align: center;
+}

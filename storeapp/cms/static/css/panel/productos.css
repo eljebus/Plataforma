@@ -1,0 +1,47 @@
+#productos td 
+{
+
+	border-bottom: 1px #a5a5a5 solid;
+	padding-bottom: 0.5em;
+	padding-top: 0.5em;
+	transition:all ease 0.3s;
+
+}
+#cabecera
+{
+	font-weight: bold;
+	color: #3c474d;
+}
+
+
+#productos
+{
+	text-align: center;
+	
+}
+#productos tr:hover td
+{
+	background-color: #fff;
+	cursor: pointer;
+}
+#contenedor-tabla
+{
+	margin-left: 1em;
+	width:72%;
+	overflow: hidden;
+}
+#container{
+	display: block;
+	margin: 0;
+}
+.modify
+{
+	color:#f86924;
+	
+}
+.modify label
+{
+	cursor: pointer;
+}
+
+

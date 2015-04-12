@@ -1,0 +1,49 @@
+ {% extends "adminTemplate.html" %}
+
+  {% block estilos %}
+  {% load static from staticfiles %}
+
+     <link rel="stylesheet" href="{% static "css/editor.css" %}" />
+      <link rel="stylesheet" href="{% static "css/panel/envios.css" %}" />
+  {% endblock %}
+
+	{% block content %}
+  <p class='listo {{color}}' style='display:{{ver}}'>
+    <label class='{{icono}}'> </label>{{letrero}}
+  </p>
+  <p class='color-gris punteado'><label class="icon-tag"></label> Los Métodos que se den de alta serán validados, debido a que estaran disponibles para todas las tiendas</p>
+	<form action="/metodo/nuevo/" method="POST" accept-charset="utf-8" id='product-form' enctype="multipart/form-data">
+    {% csrf_token %}
+    {{form.as_p}}
+		<input type="text" name="nombre" placeholder='Nombre del método de envio' autofocus>
+     <ul id='imagenes-form'class='list-none inline ultimo'>
+       
+       <div id='tumbs-container' class='inline'></div>
+
+
+        <li class='ultimo '>
+          <div id='container-spot'>
+             <label class='icon-plus iconos'></label>
+            Agregar Imagenes
+          </div>
+          <input type="file" name="logo" id='add-imagen' required>
+
+         
+        </li>
+      </ul>
+    <br>
+    <br>
+		<textarea name="datos" placeholder='Descripción detallada de producto' class='editor'>Descripcion Detallada</textarea>
+		
+    <input type="submit" name="" value="Guardar Método" >
+	</form>
+
+    {% endblock %}
+
+    {% block scripts %}
+
+    <script src="{% static "js/editor.js" %}"></script>
+    <script src="{% static "js/panel/imagenes.js" %}"></script>
+    <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+    <script src="{% static "js/panel/productos.js" %}"></script>
+	{% endblock %}

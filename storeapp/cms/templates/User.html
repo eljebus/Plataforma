@@ -1,0 +1,65 @@
+ {% extends "adminTemplate.html" %}
+
+  {% block estilos %}
+    {% load static from staticfiles %}
+    <link rel="stylesheet" href="{% static "css/panel/productosAdd.css" %}" />
+    <link rel="stylesheet" href="{% static "css/editor.css" %}" />
+    <link rel="stylesheet" type="text/css" href="{% static "css/tema.min.css" %}">
+    <link rel="stylesheet" type="text/css" href="{% static "css/panel/prox.css" %}">
+    <style>
+      #tiendas{
+        background: white;
+        padding: 1em;
+      }
+      .imagenTienda{
+        width: 40%;
+        margin-right: 1em;
+
+      }
+      .datosTienda{
+        width: 57%;
+      }
+    </style>
+
+  {% endblock %}
+
+	{% block content %}
+	
+      <h2><label class='icon-users inline'></label> {{superCliente.nombre}}</h2>
+      <p class="boton  bgcolor-azul">Solicitar Login y Password</p>
+      <h2 class='bottom-none'>Mis tiendas</h2>
+      <section id='tiendas'>
+
+        {% for t in tiendas %}
+        <img src='{% static t.logo %}' class='imagenTienda inline'>
+          <div class='datosTienda inline'>
+          {% for c in contrato %}
+            {% if c.tienda == t.idtienda %}
+              
+                <h3 class='top-none'>Número de Contrato: {{c.idcontrato}}</h3>
+                Periodo: {{c.inicio}} / {{c.fin}}<br>
+                Miembro desde: {{c.fecha}}
+             
+            {% endif %}
+          {% endfor %}
+          <BR> Mail: {{t.mail}}
+          <br> Status: {{t.activo}}
+
+          </div>
+
+          {% empty %}
+            No hay tiendas registradas
+        {% endfor %}
+        
+      </section>
+
+
+
+
+    {% endblock %}
+
+    {% block scripts %}
+
+    
+
+	{% endblock %}

@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <title>{{Titulo}}</title>
+    {% load static from staticfiles %}
+   
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="{{descripcionTienda|striptags|truncatechars:200}}">
+    <link rel="stylesheet" href="{% static "css/normalize.css" %}" />
+    <link rel="stylesheet" href="{% static "css/tiendas/plantilla1/style.css" %}" />
+    <link href="http://wido.mx{% static producto.archivo %}" rel="image_src" />
+   {% block estilos %}
+
+      {% endblock %}
+    <link rel="stylesheet" type="text/css" href="{% static "css/icons.css" %}">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+
+   
+    <link href='http://fonts.googleapis.com/css?family=Ubuntu|Montserrat' rel='stylesheet' type='text/css'>
+    
+
+     <style type="text/css" media="screen">
+          footer{
+            background-color: {{colorPie}};
+          }
+          
+          #inferior{
+            color:{{colorLetraPie}};
+          }
+          nav .list-none,nav .list-none li ul li{
+            background-color: {{colorCabeceraMenu}};
+            
+          }
+          nav .list-none li{
+            color:{{colorLetraCabecera}};
+          }
+
+          nav .list-none li:hover
+          {
+            background-color: {{colorCabeceraEfecto}}
+          }
+
+
+          #logo{
+            background-color: {{colorCabeceraLogo}}
+          }
+          body
+          {
+            background-image:url('{{imagenFondo}}');
+            background-attachment:fixed;
+            background-color: {{colorFondoCuerpo}};
+            background-size:100% 100%;
+            color:{{colorLetraCuerpo}};
+          }
+        </style>
+        
+
+    
+</head>
+
+<body>
+
+{% block extras %}
+{% endblock %}
+
+  
+ {%  include cabecera %}
+ 
+<section id='contenedor'>
+
+
+   
+
+  
+
+
+   {% block content %}
+
+
+
+   {% endblock%}
+
+   <div id="alerta" title='Alto'>
+
+    <div id="mensaje-alerta">
+      
+    </div>
+             
+   </div>
+  
+
+
+</section>
+  {%  include pie %}
+
+   <div id="sesion" title="Iniciar Sesión">
+          <center><p id='error' class='top-none bottom-none color-rojo center'></p></center>
+          <p>
+            <label class="icon-users iconos inline"></label>Introduce tus datos
+            &nbsp;
+            &nbsp;
+            &nbsp;
+            &nbsp;
+            <label title="Registrarse"  id='abrirRegistro'class='inline'>
+             <label class="icon-plus"></label> Registrarse
+            </label>
+          </p>
+
+          <form id="iniciarSesion">
+            <input type="text" name="user" placeholder='Mail' required class='unico'>
+            <input type="password" name="pass" placeholder='Contraseña' required class='unico'>
+            <input type="submit" class='boton' value="Ingresar" id='ingresar'>
+           
+          </form>
+
+          
+          
+    </div>
+      
+
+    <div id='Registro' title='Nuevo Usuario'>
+      <center><label id='letrero'></label></center>
+     <form class="contact_form" id='registro-form' >
+
+     
+             <h3><label class="icon-users iconos inline"></label>Introduce tus datos</h3>
+      
+              
+          
+              
+              <input name="nombre" type="text" required id="nombre"  placeholder="Nombre:" />
+
+              <input type="email" name="mail" placeholder="Correo electronico:" required />
+
+              <input type="tel" name="tel" placeholder="Telefono:" required />
+              <input type='text' name='domicilio' placeholder='Dirección' required>
+              <input type="text" name="cp" placeholder='C.P.' class='doble' required>
+                <select name='estado' class='doble' required>
+                <option>
+                  Estado
+                </option>
+                <option value="Aguascalientes">Aguascalientes</option>
+                <option value="Baja California">Baja California</option>
+                <option value="Baja California Sur">Baja California Sur</option>
+                <option value="Campeche">Campeche</option>
+                <option value="Chiapas">Chiapas</option>
+                <option value="Chihuahua">Chihuahua</option>
+                <option value="Coahuila de Zaragoza">Coahuila de Zaragoza</option>
+                <option value="Colima">Colima</option>
+                <option value="Distrito Federal">Distrito Federal</option>
+                <option value="Durango">Durango</option>
+                <option value="Guanajuato">Guanajuato</option>
+                <option value="Guerrero">Guerrero</option>
+                <option value="Hidalgo">Hidalgo</option>
+                <option value="Jalisco">Jalisco</option>
+                <option value="Mexico">Mexico</option>
+                <option value="Michoacan de Ocampo">Michoacan de Ocampo</option>
+                <option value="Morelos">Morelos</option>
+                <option value="Nayarit">Nayarit</option>
+                <option value="Nuevo Leon">Nuevo Leon</option>
+                <option value="Oaxaca">Oaxaca</option>
+                <option value="Puebla">Puebla</option>
+                <option value="Queretaro de Arteaga">Queretaro de Arteaga</option>
+                <option value="Quintana Roo">Quintana Roo</option>
+                <option value="San Luis Potosi">San Luis Potosi</option>
+                <option value="Sinaloa">Sinaloa</option>
+                <option value="Sonora">Sonora</option>
+                <option value="Tabasco">Tabasco</option>
+                <option value="Tamaulipas">Tamaulipas</option>
+                <option value="Tlaxcala">Tlaxcala</option>
+                <option value="Veracruz-Llave">Veracruz-Llave</option>
+                <option value="Yucatan">Yucatan</option>
+                <option value="Zacatecas">Zacatecas</option>
+
+              </select>
+
+
+              <input  type='submit' class='boton' value='Registrarme'>
+
+
+     
+     </form>
+      
+
+    </div>
+  
+<script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+    <script src="{% static "js/prefixfree.js" %}"></script>
+    <script src="{% static "js/tiendas/sesion.js" %}"></script>
+    <script src="{% static "js/tiendas/carrito.js" %}" ></script>
+    <script type="text/javascript">
+
+
+      var sesion={{sesion}};       
+
+       $(document).on('ready',comenzar);
+
+          function comenzar()
+          {
+              comienzo();
+              
+          }
+
+    </script>
+   
+  {% block scripts %}
+
+
+  {% endblock %}
+
+       
+
+</body>
+
+</html>

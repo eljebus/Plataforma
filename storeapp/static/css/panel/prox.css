@@ -1,0 +1,42 @@
+
+
+#icono{
+	display: block;
+	width: 10%;
+	opacity: 0;
+	color: #3c474d;
+}
+#letras
+{
+	width: 50%;
+	opacity: 0;
+	display: block;
+	color: #3c474d;
+}
+
+@keyframes trabajando{
+	0% {margin-left:95%;
+		opacity: 0} 
+	100% {margin-left: 40%;
+	opacity: 1 } 
+}
+@keyframes letras{
+	0% {margin-left:95%;
+		opacity: 0} 
+	100% {margin-left: 0%;
+	opacity: 1 } 
+}
+
+#letras{
+	animation: letras ease;
+	animation-duration: 1s;
+	animation-fill-mode:forwards;
+}
+
+#icono{
+	animation: trabajando ease;
+	animation-duration: 1s;
+	animation-fill-mode:forwards;
+	animation-delay:0.25s
+
+}

@@ -1,0 +1,85 @@
+#centro
+{
+  width: 100%;
+  margin-top: 16px;
+  margin-bottom:16px; 
+  
+} 
+#centro h2
+{
+	font-family: 'Ubuntu', sans-serif;
+	font-size: 3em;
+	vertical-align: bottom;
+	margin-bottom: 0;
+	font-size: 2.5em;
+	color: #3c474d;
+	margin-top: 0;
+
+
+}
+#centro article h2
+{
+	font-family: 'Ubuntu', sans-serif;
+	font-size: 2em;
+}
+#centro label
+{
+	font-size: 3em;
+	font-weight: normal;
+	display: inline-block;
+	vertical-align: middle;
+	
+	margin-right:30px;
+
+}
+#centro hr
+{
+	width: 78.5%;
+	display: inline-block;
+	vertical-align: bottom;
+	margin-bottom: 10px red;
+	border:solid 1px red;
+
+
+}
+#centro article
+{ 
+  width: 68.6%;
+  display: inline-block;
+  overflow: hidden;
+  vertical-align: top
+}
+#centro article h2
+{
+	margin-top: 0px;
+}
+
+
+.articulos{
+	border-bottom: solid 1px #dcdcdc;;
+	padding-top: 1em;
+	padding-bottom: 1em;
+}
+#articulosContent{
+	padding: 1em;
+	box-sizing:border-box;
+
+	background: white;
+}
+
+#centro:nth-last-child(1){
+	border: none;
+}
+#centro aside
+{
+
+  width: 30%;
+  display: inline-block;
+  overflow: hidden;
+  margin-right: 5px;
+}
+#centro aside img
+{
+	width: 100%;
+}
+

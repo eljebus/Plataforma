@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8" />
+    <title>WIDO Tu Tienda Virtual • ventas por por Internet Jalisco • te ayudamos a saber como vender y que vender</title>
+    
+    <link href='http://fonts.googleapis.com/css?family=Ubuntu|Montserrat' rel='stylesheet' type='text/css'>
+    {% load static from staticfiles %}
+     <link rel="shortcut icon" href="/static/imagenes/icono.png"type="image/x-icon" />
+     <link rel="stylesheet" type="text/css" href="{% static "css/panel/normalize.css" %}">
+     <meta name="description" content="WIDO La mejor y mas fácil manera de vender por Internet">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="{% static "css/style.css" %}">
+    <link rel="stylesheet" type="text/css" href="{% static "css/index.css" %}">
+    <link rel="stylesheet" type="text/css" href="{% static "css/icons.css" %}">
+    <link rel="stylesheet" type="text/css" href="{% static "css/tema.min.css" %}">
+    
+    
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+    
+      {% block estilos %}
+
+        {% endblock %}
+
+
+</head>
+<body>
+
+
+
+
+
+  <div id='superior'>
+    <aside id='superior-interno'>
+      <ul class='inline list-none'>
+        <li>
+       
+        <label class='icon-pushpin iconos'>&nbsp;&nbsp;</label> Jalisco México 
+        </li>
+
+        <li>
+       
+        <label class='icon-phone iconos' id='telefono'></label>392 92 4 0377
+        </li>
+        <a href="https://www.facebook.com/wido.mx?fref=ts" title="Siguenos en Facebook" target='blank'>
+          <li> 
+            <label class='icon-facebook2 iconos' ></label>
+          </li>
+        </a>
+
+      </ul>
+      <div id='social-plugin'class='inline'>
+
+          <iframe src="//www.facebook.com/plugins/like.php?href=https%3A%2F%2Fwww.facebook.com%2Fpages%2FWido-Tu-tienda%2F611499842271771&amp;width&amp;layout=button_count&amp;action=like&amp;show_faces=false&amp;share=false&amp;height=21&amp;appId=458645437545685" scrolling="no" frameborder="0" style="border:none; width:200px;overflow:hidden; height:21px;" allowTransparency="true"></iframe>
+       
+        
+        <div id="fb"class='inline' >
+          <div class="g-plusone" data-size="tall" data-annotation="inline" data-width="120" class='inline' id='plus'></div>
+          <script type="text/javascript">
+            window.___gcfg = {lang: 'es-419'};
+
+            (function() {
+              var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+              po.src = 'https://apis.google.com/js/plusone.js';
+              var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+            })();
+          </script>
+        </div>
+      </div>
+
+
+    </aside>
+
+  </div>
+    </div>
+    <section id='containter'>
+      {%  include "header.html" %}
+
+        <section id='centro'>
+
+
+        {% block contenido %}
+
+        {% endblock %}
+           
+   
+            
+        </section>
+
+    
+
+    
+
+        
+        
+    
+        
+        
+    </section>
+
+    {%  include "footer.html" %}
+
+
+    <div id="contact" title="Contáctanos">
+
+     <h2> WIDO Tu Tienda a Tu Medida</h2>
+      <p>
+        Contáctanos y comparte con nosotros tus dudas y sugerencias.
+        <br>
+       
+        <br>
+        <small>
+         Jamay Jalisco 
+        </small>
+        
+      </p>
+
+ 
+ 
+  
+  <form id='contact-form' >
+    {% csrf_token %}
+     <input type='text' placeholder='Ingresa tu nombre' required name="Nombre">
+     <input type='email' placeholder='Ingresa tu correo' required name='mail' >
+     <textarea name="comentario" placeholder="Escribe tu mensaje" required></textarea>
+     <input type='submit' value='Contactar' class='boton'>
+
+
+  </form>
+<div id="proxima" title="Contactanos">
+  
+
+  <h2>
+    Proximamente
+  </h2>
+
+
+</div>
+
+ 
+</div>
+    <script src="{% static "js/prefixfree.js" %}"></script>
+    <script src="{% static "js/modernizr.js" %}"></script>
+    <script src="{% static "js/holder.js" %}"></script>
+    <script src="{% static "js/index.js" %}"></script>
+    <script>
+
+      $('#menuPequeno').on('change',direccionar);
+      function direccionar()
+      {
+        window.location = $(this).val();
+        console.log($(this).value);
+      }
+    </script>
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-49326802-1', 'wido.mx');
+        ga('send', 'pageview');
+
+    </script>
+    <script type="text/javascript">var _kmq = _kmq || [];
+      var _kmk = _kmk || '41aa47aa70eb7e8d75af8e9b02add5d54f7c9ab5';
+      function _kms(u){
+        setTimeout(function(){
+          var d = document, f = d.getElementsByTagName('script')[0],
+          s = d.createElement('script');
+          s.type = 'text/javascript'; s.async = true; s.src = u;
+          f.parentNode.insertBefore(s, f);
+        }, 1);
+      }
+      _kms('//i.kissmetrics.com/i.js');
+      _kms('//doug1izaerwt3.cloudfront.net/' + _kmk + '.1.js');
+      </script>
+</body>
+</html>

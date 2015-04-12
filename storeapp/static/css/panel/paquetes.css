@@ -1,0 +1,153 @@
+header input
+{
+	display: none;
+}
+header h2
+{
+	width: 506px
+}
+
+body
+{
+	color: #3c474d;
+}
+#cabecera
+{
+	font-weight: bold;
+	color: #3c474d;
+}
+#zonas{
+	border:dashed 1px #a5a5a5;
+	background: white;
+	margin-bottom: 2em;
+	padding: 0.5em;
+	width: 100%;
+}
+
+.container-zone
+{
+	
+	width: 49%;
+	display: inline-block;
+	margin-bottom: 2em;
+}
+.container-zone input,.container-zone select
+{
+	margin: 0;
+}
+.container-zone input
+{
+	margin-left: 0.5em;
+}
+#productos,#paquetesLista{
+	margin-top:0.5em;
+	display: block;
+	width: 100%;
+	border:dashed 1px #a5a5a5;
+	padding: 0.5em;
+}
+#container{
+	width: 72%;
+}
+#contenedor-tabla{
+	width: 100%;
+}
+#paquetes td{
+	border-bottom: 1px #a5a5a5 solid;
+	padding-bottom: 0.5em;
+	padding-top: 0.5em;
+	text-align: center;
+	transition:all ease 0.5s;
+}
+#paquetes tr:hover td{
+	background-color: white;
+	cursor: pointer;
+}
+#paquetes{
+	width: 100%;
+}
+#addpack{
+	margin-left: 45%;
+	width: 53.2%;
+	margin-top: 0;
+}
+input [type='checkbox']
+{
+	margin: 0;
+}
+
+.product-containter{
+	width: 213px;
+	display: inline-block;
+	margin-bottom: 1em;
+}
+
+.pack-containter
+{
+	width: 49%;
+	display: inline-block;
+	margin-bottom: 1em;
+	overflow: hidden;
+}
+.pack-containter .boton{
+	width: 100%;
+}
+.texto-pack{
+	vertical-align: top;
+	min-width: 102px;
+	display: inline-block;
+}
+
+.check{
+	width: 20px;
+
+	margin: 0;
+}
+.texto{
+	vertical-align: top;
+	min-width: 192px;
+
+}
+
+.item
+{
+	margin-bottom: 1em;
+}
+
+#zone-form{
+	width: 100%;
+	overflow: hidden;
+}
+#zone-form input[type='submit']
+{
+	margin-left: 59%;
+}
+#estados
+{
+	display: block;
+}
+
+.estados{
+	width: 24.65%;
+
+	text-align: left;
+	display: inline-block;
+	margin-bottom: 0.5em;
+}
+
+.estados input{
+	width: 20px;
+	margin: 0;
+	display: inline-block;
+	vertical-align: middle;
+}
+.estados span
+{
+
+	display: inline-block;
+	vertical-align: middle;
+}
+.iconosp{
+
+	cursor:pointer;
+}

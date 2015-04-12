@@ -1,0 +1,127 @@
+ {% extends "adminTemplate.html" %}
+
+  {% block estilos %}
+  {% load static from staticfiles %}
+    
+    <link rel="stylesheet" href="{% static "css/panel/productosAdd.css" %}" />
+    <link rel="stylesheet" href="{% static "css/editor.css" %}" />
+    <link rel="stylesheet" type="text/css" href="{% static "css/tema.min.css" %}">
+
+  {% endblock %}
+
+	{% block content %}
+  <p class='listo {{color}}' style='display:{{ver}}'>
+    <label class='{{icono}}'> </label>{{letrero}}
+  </p>
+   {{test}}
+	<form action="{{action}}" method="POST" accept-charset="utf-8" id='product-form' enctype="multipart/form-data">
+    {% csrf_token %}
+
+		<input type="text" name="nombre"  placeholder='Nombre del Producto' required value="{{producto.nombre}}" autofocus>
+
+    <input type="decimal" name="precio" placeholder='Precio' class='triple' pattern='^[0-9]{1,5}(\.[0-9]{0,2})?$' value="{{producto.precio}}"required>
+  
+    <input type="number" name="existencias"  id='ee' placeholder='Existencias' required class='triple' value="{{modelo.existencias}}" min="0">
+
+    <select class='triple' id='add-unidad' name='unidad'  required>
+      <option value="">Unidad</option>
+      {% for u in unidades %}
+        {% if u.nombre == producto.unidad|safe %}
+            <option value="{{u.nombre}}" selected>{{u.nombre}} ({{u.prefijo}})</option>
+        {% else %}
+             <option value="{{u.nombre}}" >{{u.nombre}} ({{u.prefijo}})</option>
+        {% endif %}
+
+      {% endfor %}
+      <option value="Nueva" id='add-unit'>Nueva...</option>
+      
+    </select>
+    
+
+    <div id='models-container'>
+     
+
+      <p class='item add-item'><label class='icon-plus'> </label>Agregar Modelo</p>
+       {% for m in modelos %}
+        
+        <div class='item-container'><input type='text' name='nombreModeloExistente_{{m.nombre}}' value='{{m.nombre}}' class='triada' required placeholder='Nombre del modelo'><input type='text' name='precioModeloExistente_{{m.nombre}}' value='{{m.precio}}' class='triple' placeholder='Precio'><input type='text' name='descripcionModeloExistente_{{m.nombre}}' value='{{m.descripcion}}' class='triada ultimo' placeholder='Descripción (opcional)' ><input type='number'  name='existenciasModeloExistente_{{m.nombre}}'value='{{m.existencias}}' placeholder='Existencias' required min='1' class='cuarteto'><label class='icon-cross inline delete color-rojo'></label></div>
+      {% endfor %}
+      
+    </div>
+
+		<textarea name="descripcion" placeholder='Descripción detallada de producto' class='editor' required>
+      {% if producto.descripcion %}
+        {{producto.descripcion|safe}}
+      {% else %}
+        Descripcion Detallada
+      {% endif %}
+    </textarea>
+		
+    <div class='form-interno'>
+      <select name="categoria" class='inline triada'required>
+      <option value="">Selecciona una Categoría</option>
+      
+        {% for c in categorias %}
+          {% if c.nombre == producto.categorias|safe %}
+            <option value="{{c.nombre}}" selected>{{c.nombre}}</option>
+          {% else %}
+             <option value="{{c.nombre}}">{{c.nombre}}</option>
+          {% endif %}
+          {% empty %}
+            <option value=''><label class='icon-sad color-rojo'></label> No hay Categorías</option>
+        {% endfor %}
+      </select>
+
+      <ul id='imagenes-form'class='list-none inline ultimo'>
+       
+       <div id='tumbs-container' class='inline'>
+        {% for i in imagenes %}
+          <li class='logo'><img src="{% static i.archivo %}" title='{{i.nombre}}'></li>
+        {% endfor %}
+       </div>
+  
+
+        <li class='ultimo '>
+          <div id='container-spot'>
+             <label class='icon-plus iconos'></label>
+            Agregar Imagenes
+          </div>
+          <input type="file" name="files[]" id='add-imagen'multiple='true' {{required}}>
+
+         
+        </li>
+      </ul>
+    </div>
+
+    <input type="submit" name="" value="Guardar Producto" >
+	</form>
+
+
+  <div id="unit" title="Nueva Unidad">
+
+     <h2> Agregar unidades</h2>
+  
+  <form id='unit-form'>
+    {% csrf_token %}
+
+    <input type="text" name="nombreUnidad" value="" required placeholder='Nombre' class='unico-doble'>
+    <input type="text" name="prefijo" value="" required placeholder='prefijo ejem Kg' class='unico-doble'> 
+     <input type='submit' value='Guardar Unidad' class='boton'>
+
+
+  </form>
+
+
+ 
+</div>
+
+    {% endblock %}
+
+    {% block scripts %}
+
+    <script src="{% static "js/editor.js" %}"></script>
+    <script src="{% static "js/panel/imagenes.js" %}"></script>
+    <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+    <script src="{% static "js/panel/productos.js" %}"></script>
+
+	{% endblock %}

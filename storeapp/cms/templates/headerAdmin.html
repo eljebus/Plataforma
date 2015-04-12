@@ -1,0 +1,33 @@
+ <header >
+  {% if pago != '' %}
+    <p class='color-rojo bgcolor-rojo centrado'>{{pago|safe}}</p>
+  {% endif %}
+
+
+    {% load static from staticfiles %}
+        <a href="http://{{miPagina}}">
+         <div id='logo' style='cursor:pointer'>
+            <img src="{% static logo %}">
+         </div>
+        </a>
+
+
+       
+        <h2 class='margin-none'>{{titulo}}</h2>
+        <form action='{{accion}}' method='POST' class='inline abajo'>
+          {% csrf_token %}
+          <input type="search" name="buscar" value="" placeholder='Buscar'>
+        </form>
+         
+        <a href="/User/" title="Datos de Usuario">
+         <label id='user' class='' >
+
+           <label class='icon-profile iconos inline'></label>
+           <label class='inline' id='name-user'>{{Usuario}}</label>
+           
+           <label class='icon-arrow-right iconos inline'></label>
+         </label>
+        </a>  
+        
+   </header>
+        

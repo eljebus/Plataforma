@@ -1,0 +1,235 @@
+{% extends "plantilla1/template.html" %}
+
+{% block estilos %}
+{% load static from staticfiles %}
+
+<link rel="stylesheet" type="text/css" href="{% static "css/tiendas/slider/idangerous.swiper.css" %}">
+  <link rel="stylesheet" href="{% static "css/panel/editor.css" %}" />
+
+  <link rel="stylesheet" href="{% static "css/tema.min.css" %}" />
+  <link rel="stylesheet" href="{% static "css/panel/colorpicker.css" %}" type="text/css" />
+
+
+
+{% endblock %}
+
+
+{% block extras %}
+
+    <div id="dialog-confirm" title="Esta seguro que desea salir?">
+      <p><span class="ui-icon ui-icon-alert" style="float:left; margin:0 7px 20px 0;"></span>Se perderan todos los cambios sin guardar</p>
+    </div>
+
+   <div  id='editor'>
+
+
+                  <form id='design' action='/miEstilo/' method="POST" enctype="multipart/form-data">
+                    {% csrf_token %}
+                      
+                    
+                    <div class="acordion" >
+
+
+                      <h3>Estilo General</h3>
+                      <div>
+                   
+                        <div class="selectores">
+                          <input id='color_fondo' name="colorFondoCuerpo" type="text" class='colores' data-tipo='colores' autofocus placeholder='Fondo'data-element='body' />
+                      
+                        </div>
+                        <div class="selectores">
+                            <input id='imagen' name="imagenFondo" type="file"  class='file' data-element='body' />
+                            <input type="text"  placeholder='Imagen' id='imagenSeleccionada'/>
+                        </div>
+                        <div class="selectores">
+                          <input id='letra' name="colorLetraCuerpo" type="text" class='colores' data-tipo='letra' data-element='body'  placeholder='Letra'/>
+                                      
+                        </div>
+                      </div>
+                      <h3> Estilo del Menú</h3>
+                      <div>
+                        <div class="selectores">
+                          <input id='color_fondo_menu' name="colorCabeceraMenu" type="text"  class='colores cblock' data-tipo='colores' placeholder='Fondo' data-element='nav .list-none' />
+                                      
+                        </div>
+                        <div class="selectores">
+                          <input id='color_hover' name="colorCabeceraEfecto" type="text"  class='colores cblock' data-tipo='coloresHover' placeholder='Efecto' data-element='nav .list-none li' />
+                                     
+
+                        </div>
+                        <div class="selectores">
+                          <input id='letra' name="colorLetraCabecera" type="text"  class='colores' data-tipo='letra'  placeholder='Letra'data-element='nav .list-none li'/>
+                                     
+                        </div>
+                      </div>
+                      <h3>Estilo del Logo</h3>
+                      <div>
+                          <div class="selectores">
+                          <input id='log' name="colorCabeceraLogo" type="text"  data-element='#logo' class='colores' placeholder='Fondo'data-tipo='colores' />
+                          </div>
+                        
+                      </div>
+                      <h3>Estilo del Pie</h3>
+                      <div>
+                        <div>
+                                
+                                    <div class="selectores">
+                                      <input id='pie' name="colorPie" type="text"  data-element='footer' placeholder='Fondo'class='colores' data-tipo='colores' />
+                                    </div>
+
+
+                                  
+                                    <div class="selectores">
+                                      <input id='letra' name="colorLetraPie" type="text"  class='colores' placeholder='Letra'data-tipo='letra' data-element='#inferior' />
+                        </div>
+
+
+
+                                          
+                                 </div>
+                      </div>
+
+                     
+                      </div>
+
+                      
+
+                        <p id='guardar' class='boton-editor bgcolor-naranja top-none bottom-none'> 
+                        <label class='icon-disk iconosp' ></label>
+                         Guardar Cambios
+                        </p>
+                      
+
+                        <p id='salir' class='boton-editor bgcolor-rojo top-none'> 
+                        <label class='icon-exit iconosp' ></label>
+                        Salir del Editor 
+                        </p>
+
+                    </div>
+                  </form>
+      
+
+
+   </div>
+
+   
+{% endblock %}
+
+{% block content %}
+
+
+
+<div class="swiper-container">
+        <div class="swiper-wrapper">
+            <!--First Slide-->
+            {% for a in anuncios %}
+            <div class="swiper-slide"> 
+                <img src="{% static a.imagen %}" title="{{a.nombre}}">
+            </div>
+             {% empty %}
+              <style>
+               .swiper-container{
+                border:dashed 1px;
+               }
+              </style>
+                <center>
+                  <h3>
+                   <label class='icon-box-add'>
+                    Añade un Anuncio
+                   </label>
+                 </h3> 
+                </center>
+            
+            {%  endfor %}
+            
+            
+           
+        </div>
+      </div>
+      <center>
+        <div class='pagination'></div>
+      </center>
+           
+            
+            {% for p in productos %}
+
+              {% if forloop.counter|divisibleby:"4" %}
+                <figure class='productos' id='ultimo'>
+              {% else %}
+                <figure class='productos' >
+              {%  endif %}
+              
+            <img src="{% static p.archivo %}">
+            <figcaption>
+               <p class='nombre top-none bottom-none'> {{p.nombre}}</p>
+              <div class='precio'>
+                 $ {{p.precio}}
+               </div>
+      
+
+               <div class='carrito boton'>
+                 <label class='icon-cart'></label> Agregar
+               </div>
+
+            </figcaption>
+           
+              
+            </figure>
+            {% endfor %}
+
+
+
+
+              
+            </aside>
+
+
+              <center>
+                <p class='boton bgcolor-azul'>
+
+                  Ver todos los productos<label class=' icon-arrow-right inline iconos'></label>
+                </p>
+
+              </center>
+            
+
+        </section>
+       
+       
+   
+
+{% endblock%}
+
+{% block scripts %}
+  <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
+  <script type="text/javascript" src="{% static "js/panel/colorpicker.js" %}"></script>
+  <script type="text/javascript" src="{% static "js/panel/eye.js" %}"></script>
+  <script type="text/javascript" src="{% static "js/panel/utils.js" %}"></script>
+  <script type="text/javascript" src="{% static "js/panel/layout.js?ver=1.0.2" %}"></script>
+  <script src="{% static "js/tiendas/sliders/idangerous.swiper.js"%}"></script>
+  <script src="{% static "js/panel/editorEngine.js" %}"></script>
+
+
+
+
+{% endblock%}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

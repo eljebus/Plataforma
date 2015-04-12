@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <link href='http://fonts.googleapis.com/css?family=Ubuntu|Montserrat' rel='stylesheet' type='text/css'>
+    {% load static from staticfiles %}
+
+     <link rel="stylesheet" type="text/css" href="{% static "" %}css/style.css">
+    <link rel="stylesheet" type="text/css" href="{% static "" %}css/index.css">
+    <link rel="stylesheet" type="text/css" href="{% static "" %}css/icons.css">
+    <link rel="stylesheet" type="text/css" href="{% static "" %}css/articulos.css">
+    <link rel="stylesheet" type="text/css" href="{% static "" %}css/tema.min.css">
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+
+    
+
+    <script type="text/javascript">
+
+   $(document).ready(function() {
+
+
+        $("#contact" ).dialog({
+            height: 400,
+            autoOpen:false,
+            modal: true,
+            width:400,
+            resizable:false,
+            show: "clip",
+            hide: "clip"
+        });
+
+        $( "#final" ).on('click',function(e) 
+        {  
+          e.preventDefault();
+        
+          $( "#contact" ).dialog( "open" );
+        });
+
+
+        $("#proxima" ).dialog({
+            height: 400,
+            autoOpen:false,
+            modal: true,
+            width:400,
+            resizable:false,
+            show: "clip",
+            hide: "clip"
+        });
+
+
+        $( "#demo" ).on('click',function(e) 
+        {  
+          e.preventDefault();
+     
+          $( "#proxima" ).dialog( "open" );
+        });
+
+
+         $( "#clientes" ).on('click',function(e) 
+        {  
+          e.preventDefault();
+          
+          $( "#proxima" ).dialog( "open" );
+        });
+        
+
+         $( "#articulos" ).on('click',function(e) 
+        {  
+          e.preventDefault();
+         
+          $( "#proxima" ).dialog( "open" );
+        });
+
+
+
+    });
+     
+
+
+
+    </script>
+</head>
+<body>
+
+<div id="contact" title="Contactanos">
+  
+  <form>
+     <input type='text' placeholder='Ingresa tu nombre' required name="Nombre">
+     <input type='email' placeholder='Ingresa tu correo' required name='mail' >
+     <input type='text' placeholder='Ingresa el nombre de tu negocio' required name="Negocio">
+     <textarea name="mensaje" placeholder="Escribe tu mensaje" ></textarea>
+     <input type='submit' value='Contactar'>
+
+
+  </form>
+
+
+  
+ 
+</div>
+
+<div id="proxima" title="Contactanos">
+  
+
+  <h2>
+    Proximamente
+  </h2>
+
+
+</div>
+
+<div id='sombra'></div>
+
+
+<center>
+  <div id='modal'>
+      
+  
+       <h4 class='top-none'>Registro</h4>
+
+       <div class='formulario'>
+         <input name="data[name]" placeholder="Nombre" class="name" type="text" id="name">
+       </div>
+        
+        <div class='formulario'>
+          <input name="data[e-mail]" placeholder="E-mail" type="text" id="e-mail">
+       
+          <input type="submit" value="Registrar">
+        </div>
+
+        
+
+       
+
+      
+</div>
+</center>
+
+    
+
+  <div id='superior'>
+        <aside id='superior-interno'>
+      <ul class='inline list-none'>
+        <li>
+       
+        <label class='icon-pushpin iconos'>&nbsp;&nbsp;</label> Iturbide #345 Jamay Jalisco México C.P. 47900
+        </li>
+
+        <li>
+       
+        <label class='icon-phone iconos' id='telefono'></label>392 92 4 0798
+        </li>
+
+        <li> 
+        <label class='icon-facebook2 iconos' ></label>
+        </li>
+
+      </ul>
+    </aside>
+    </div>
+    <section id='containter'>
+        <header>
+            <nav>
+                <ul>
+                    <li id='inicio'>
+                        <a href>
+                            <img src="imagenes/logo.png">
+
+                        </a>
+                        
+                    </li>
+                    <li id='home'>
+                        <a href="index.html">
+                            <label class='icon-home iconos'></label>
+                            <p>INICIO</p>
+                        </a>
+                    </li>
+                    
+          <li id='demo'>
+            <a href="">
+              <label class='icon-play iconos'></label>
+              <p>DEMO</p>
+            </a>
+                        
+                    </li>
+                    
+          <li id='clientes'>
+                        <a href="">
+              <label class='icon-users iconos'></label>
+              <p>CLIENTES</p>
+            </a>
+                    </li>
+                    
+          <li id='articulos'>
+                        <a href="">
+              <label class='icon-feed iconos'></label>
+              <p>ARTÍCULOS</p>
+            </a>
+                    </li>
+                    
+          <li id='final'>
+                        <a href="">
+              <label class='icon-bubbles2 iconos'></label>
+              <p>CONTACTO</p>
+            </a>
+                    </li>
+                </ul>
+            </nav>
+        </header>
+
+        <section id='centro'>
+
+
+        
+           <label class='icon-arrow-left2'></label>
+
+            <h2 class='top-none'>
+              Articulos
+
+            </h2>
+            <hr>
+
+            <aside>
+
+              <img src="imagenes/flecha.png">
+              
+            </aside>
+
+            <article>
+         
+              <h2>Titulo</h2>
+            
+
+            <p>
+            El idioma klingon (tlhİngan Hol, transcrito fonéticamente como /ˈt͡ɬɪŋɑn xol/) es una lengua construida y artística, desarrollada por Marc Okrand para los estudios Paramount Pictures, como lengua vernácula de la raza klingon en el universo de Star Trek. Fue diseñado con un orden de palabras tipo Objeto Verbo Sujeto (OVS) para hacerlo menos intuitivo y darle un aspecto más alienígena.
+            El actor James Doohan creó los sonidos básicos, junto con unas pocas palabras para la primera película basada en la serie original, Star Trek: La película (1979). Hasta este momento los klingon siempre se habían expresado en inglés. Posteriormente Marc Okrand amplió el escaso vocabulario creado por Doohan, creando un amplio léxico y una gramática completa, para Star Trek III: En busca de Spock y las producciones posteriores.
+
+
+            </p>
+              
+            </article>
+
+
+
+
+
+           
+
+
+
+           
+       
+            
+         
+      
+
+        
+        
+        
+
+   
+            
+        </section>
+
+    
+
+    
+
+        
+        
+    
+        
+    </section>
+
+    <footer>
+        
+  <div id='footer-container'>
+    <ul class='inline list-none inferiores' >
+      <li id='about'>
+      <img src="imagenes/logo.png" width="150">
+        <article>
+        <p>
+           Mind On Cloud es una plataforma
+        donde puedes crear tu propia tienda en internet fácil y rápidamente. 
+        </p>
+        <p>
+           Te ofrecemos diferentes planes para que eligas el que mejor se adapte a tus necesidades.
+           Incrementa tus ventas, expande tu mercado, atrae a mas clientes, comienza ya!.
+        </p>
+        </article>
+      </li>
+
+      <li>
+      
+        <h4 class='top-none'>Casos de Exito</h4>
+     
+      <ul class="list-none"id='clients'>
+        
+        <li >
+          <figure>
+            <img src="{{Imagen}}">
+            <fieldset>
+             {{Descripcion}}
+            </fieldset>
+          </figure>
+        </li>
+      
+      </ul>
+
+      <label class='button-gris'>
+        Ver mas
+      </label>
+
+    
+
+      </li>
+
+      <li class='ultimo'>
+        <h4 class='top-none'>Contacto</h4>
+
+       <div class='formulario'>
+         <input name="data[name]" placeholder="Nombre" class="name" type="text" id="name">
+       </div>
+        
+        <div >
+          <input name="data[e-mail]" placeholder="E-mail" type="text" id="e-mail">
+        </div>
+
+        <div>
+           <textarea name="data[mensaje]" placeholder="Escribe tu mensaje" class="mensaje" id="mensaje"></textarea>
+        </div>
+
+        <div>
+          <input type="submit" value="Enviar">
+        </div>
+        
+
+       
+
+      </li>
+    </ul>
+
+  </div>
+    
+        <aside id='inferior'>
+            
+      <div id='inferior-interno'>
+       <p>Mind On Cloud © 2013 &nbsp;|&nbsp; Todos los derechos Reservados</p> 
+      </div>
+       
+    
+        </aside>
+
+    </footer>
+    
+</body>
+</html>

@@ -1,0 +1,72 @@
+{% extends "template.html" %}
+
+{% block estilos %}
+{% load static from staticfiles %}
+  <link rel="stylesheet" type="text/css" href="{% static "css/articulos.css" %}">
+
+
+{% endblock %}
+
+
+{% block contenido %}
+
+
+
+            <h2 class='top-none'>
+              Artículos
+
+            </h2>
+            <br>
+            <section id='articulosContent'> 
+              <div class='articulos'>
+               <aside>
+      
+              <img src="{% static "imagenes/wido.png" %}">
+              
+              </aside>
+
+              <article>
+           
+                <h2 class='top-none'>WIDO</h2>
+
+              <p>
+                  WIDO es una plataforma en la que puedes crear tu propia  tienda virtual,vender tus productos, ampliar tu Mercado a todo el País, Incrementar tus clientes, sin necesidad de conocimientos técnicos, alojamiento o dominio propio. ¡Sólo necesitas ganas de vender!
+              </p>
+              
+            </div>
+            
+            <div class="articulos">
+               <aside>
+      
+              <img src="{% static "imagenes/tienda.jpg" %}">
+              
+            </aside>
+
+            <article>
+         
+              <h2 class='top-none'>¿Qué es una sucursal o tienda virtual?</h2>
+            
+
+            <p>
+            
+          Es una aplicación que permite a subir su catálogo electrónico ,mostrar sus productos y/o servicios, y ofrecer a sus clientes actuales y potenciales la oportunidad de hacer pedidos y compras desde internet.
+
+
+          Dentro del panel de control usted puede cambiar, poner o quitar sus artículos de forma fácil, cómoda e inmediata
+
+          <br>
+            Típicamente estos productos se pagan mediante tarjeta de crédito y se le envían al cliente por correo o agencia de transporte, aunque según el país y la tienda pueden haber otras opciones, como Paypal.
+          La inmensa mayoría de tiendas en línea requieren la creación de un usuario en el sitio web a partir de datos como nombre, dirección y correo electrónico. Este último a veces es utilizado como medio de validación
+          </br>
+
+                      </p>
+              
+            </article>
+              
+            </div>
+
+            </section>
+            
+           
+
+{% endblock %}

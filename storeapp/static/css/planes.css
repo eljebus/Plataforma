@@ -1,0 +1,208 @@
+
+hr
+{
+	width: 90%;
+	border:none;
+	background-color: white;
+	height: 2px;
+
+}
+#titular
+{
+	font-family: 'Ubuntu', sans-serif;
+	font-size: 3em;
+}
+#encabezado
+{
+	margin-bottom: 10px;
+}
+#articulo
+{
+	
+	width: 65%;
+	display: inline-block;
+	vertical-align: top;
+}
+#todo
+{
+	background-color: white;
+	padding: 15px;
+
+}
+#ultimo
+{
+	margin-right: 0px;
+}
+#plan
+{
+	color: #35bb79;
+
+	
+}
+#arriba
+{
+	width: 100%;
+	height: auto;
+
+}
+#imagen
+{
+	display: inline-block;
+	width: 31.2%;
+	margin-right: 30px;
+	height: 150px;
+}
+#nombre
+{  
+	height: 50px;
+	margin: auto;
+	margin-top: 20px;
+	text-align: center;
+	font-size: 2em;
+	font-weight: bold;
+	border-radius:25px;
+	box-sizing: border-box;
+	padding-top: 6px;
+}
+#centro
+{
+	color: gray;
+}
+
+#nota
+{
+	color: #3c474d;
+	font-family: 'Ubuntu', sans-serif;
+	width: 40%;
+	height: 100px;
+	margin-top: 20px;
+
+}
+.centro_hr
+{
+	width: 90%;
+	border:none;
+	background-color: gray;
+	height: 2px;
+
+}
+.compra
+{
+	width: 35%;
+	height: 20px;
+	padding:10px;
+	margin: auto;
+	margin-top: 20px;
+	margin-bottom: 30px;
+	font-weight: bold;
+	color: white;
+}
+.grande
+{
+	font-size: 1em;
+	font-weight: bold;
+}
+.planes
+{   width: 31.2%;
+	height: 600px;
+	display: inline-block;
+	margin-right: 30px;
+	margin-top: 30px;
+	vertical-align: top;
+	color: white;
+	font-family: 'Ubuntu', sans-serif;
+	box-shadow: 0px 0px 5px 0px rgba(50, 50, 50, 0.5);
+	text-align: center;
+	
+
+}
+.planes label 
+{
+	font-weight: bold;
+	font-size: 2em;
+
+
+}
+.precio
+{   
+	margin:auto;
+	margin-top: 20px;
+
+}
+
+.descripcion
+{
+	width: 65%;
+	font-family: 'Ubuntu', sans-serif;
+	font-weight: bold;
+	margin: auto;
+	margin-top: 10px;
+	text-align: center;
+}
+.mes-val
+{
+	font-size: 1.2em;
+}
+
+.contenido
+{
+  
+  width: 80%;
+  margin: auto;
+  height: auto;
+}
+.chica
+{
+	text-align: center;
+	font-weight: normal;
+}
+
+
+.paquete li
+{
+	
+	width: 100%;
+	height: 50px;
+	margin-top: 5px;
+    text-align: center;
+}
+
+@media (max-width: 1250px){
+	.planes {
+		width: 30.2%;
+	}
+	.compra {
+	width: 65%;
+}
+
+}
+@media (max-width: 1150px){
+	.descripcion {
+	width: 79%;
+	}
+	#articulo {
+		width: 64%;
+	}
+
+}
+@media (max-width: 860px){
+	#imagen {
+		width: auto;
+	}
+	#articulo {
+		width: 100%;
+
+	}
+	.planes {
+	width: 80%;
+	min-height: 510px; 
+	margin: auto;
+	display: block;
+	}
+	#ultimo{
+		margin: auto;
+	}
+	#nota{
+		width: 100%;
+	}
+}

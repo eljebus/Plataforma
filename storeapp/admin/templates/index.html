@@ -1,0 +1,187 @@
+
+{% extends "template.html" %}
+
+{% block contenido %}
+
+     <section id='slider'>
+      
+      <div id='texto'>
+        <span>&nbsp;Incrementar tus ventas nunca fue tan fácil&nbsp;</span>
+         <span>
+           &nbsp;Wido tu tienda, tu plataforma&nbsp;
+         </span> 
+
+       <button id='registro'><label class='icon-file inline'></label>  &nbsp;<label class='inline'>Crear Mi tienda</label> &nbsp;&nbsp;<label class='icon-arrow-right inline'></label></button>
+  
+      </div>
+        
+   
+      
+    </section>
+
+    <section id='imagen'>
+
+      <ul class='list-none' id='img-container'>
+        
+        <li>
+          
+          <figure class='inline'>
+            {% load static from staticfiles %}
+            <img src="{% static "imagenes/crea-tu-tienda.png"%}">
+            <fieldset>
+              <h2 class='top-none'>
+                <label class='numeros bgcolor-naranja'>1</label>Crea tu cuenta
+              </h2>
+                <p>
+                Define el nombre de tu tienda online.
+              </p>
+            </fieldset>
+          </figure>
+
+        </li>
+
+
+       <li>
+        <figure class='inline'>
+
+          <img src="{% static "imagenes/arma-tu-tienda.png" %}" >
+          <fieldset>
+            <h2 class='top-none'>
+              <label class='numeros bgcolor-naranja'>2</label>Arma tu tienda
+            </h2>
+              <p>
+              Con el estilo de tu empresa, sin conocimientos técnicos 
+            </p>
+          </fieldset>
+        </figure>
+        
+      </li>
+
+       <li>
+
+        <figure class='inline '>
+          <img src="{% static "imagenes/productos.png" %}">
+          <fieldset>
+            <h2 class='top-none'>
+              <label class='numeros bgcolor-naranja'>3</label>Agrega productos
+            </h2>
+            <p>
+              Maneja tus productos, pedidos, clientes y mucho más desde un sencillo panel de administración.
+            </p>
+          </fieldset>
+        </figure>
+        
+      </li>
+
+       <li>
+
+        <figure class='inline'>
+          <img src="{% static "imagenes/vender.png"%}">
+          <fieldset>
+            <h2 class='top-none'>
+              <label class='numeros bgcolor-naranja'>4</label>Comienza a vender
+            </h2>
+              <p>
+              Con tarjeta de crédito, en cuotas y hasta en efectivo.
+               Todo por Internet y desde tu tienda online
+            </p>
+            
+          </fieldset>
+        </figure>
+        
+      </li>
+     
+
+        
+      </ul>  
+    </section>
+    <section class='services inline color-verde'>
+     <img src="{% static "imagenes/estilo.png" %}">
+    
+        <h3 class='top-none'>
+           Tu Estilo
+        </h3>
+
+       <article>
+      
+          Personaliza tu tienda, cambia colores, imagenes, estilos desde nuestro editor, plasma tu estilo, tu personalidad en tu tienda.
+      </article>
+
+      <img src="{% static "imagenes/flecha.png"%}" class='flecha flechap'>
+
+    </section>
+
+    <section class='services inline bgcolor-naranja'>
+    <img src="{% static "imagenes/dispositivos.png"%}">
+    
+    
+       <h3 class='top-none'>
+         Adaptable
+       </h3>
+       <article >
+   
+
+           Tus clientes se conectan desde celulares y tabletas. Tu tienda podrá ser visitada desde las principales plataformas de tabletas y teléfonos móviles. Permitira que tu tienda sea visible desde cualquier dispositivo
+       </article>
+    
+        <img src="{% static "imagenes/flecha.png"%}" class='flecha flechap'>    
+      
+    </section>
+    
+    <section class='services inline bgcolor-amarillo'style='margin-right:0'>
+    <img src="{% static "imagenes/planes.png"%}">
+     <h3 class='top-none'>
+        El plan adecuado
+     </h3>
+      <article>
+      
+           Tenemos un plan especial para cada negocio. Nuestros precios se ajustan a las necesidades y tamaño de cada tienda. Expande tu negocio, incremeta tus ventas,aumenta tus clientes.
+      </article>
+      <a href="/Planes/" title="El plan adecuado">
+        <img src="{% static "imagenes/flecha.png"%}" class='flecha'>
+      </a>
+    </section>
+
+
+    <div id="registra" title="Crear Mi Tienda (7 días Gratis)">
+      <label id='Error' class='color-rojo'></label>
+       <form action='/crearTienda/' method="post" id='register-form' accept-charset="utf-8">
+          {% csrf_token %}
+          <input type="text" name='nombreCliente' placeholder="Mi Nombre" required>
+
+          <input type="email" name='mail' placeholder=" Mi mail" required>
+
+          <!--<input type="login" name='login' placeholder="Login" class='doble' required>
+          <input type="password" name='pass' placeholder="Contraseña" class='doble' required>-->
+
+          <input type="text" placeholder="Nombre de Mi Tienda" name='nombreTienda'required>
+
+          <input id="sub" type="text" placeholder="Nombre para Internet" class='doble' name='subdominio' required pattern="|^[a-zA-Z]*$|" title='No espacios ni caracteres especiales'>.wido.com.mx<br>
+          
+          <br>
+
+          <!--<div class='plan bgcolor-naranja inline'>
+            <input type="radio" name="planes" id='Bronce' value="Bronce" placeholder="">
+            <label for="Bronce">Bronce</label>
+          </div>
+          <div class='plan plata inline'>
+            <input type="radio" name="planes" id='Plata' value="Plata" placeholder="">
+            <label for="Plata">Plata</label>
+          </div>
+          <div class='plan bgcolor-amarillo inline ultimo'>
+            <input type="radio" name="planes" id='Oro' value="Oro" placeholder="">
+            <label for="Oro">Oro</label>
+          </div>
+           <INPUT type='checkbox' value='true' name='terminos' required id='terminos'><label for='terminos'> Acepto los <a href="/terminos/" title=""> Terminos de Uso</a></label>-->
+
+          <input type="submit"  value="Crear Mi Tienda" class='boton' id='crear'>
+       
+        </form>
+        
+
+        <h1>{{mensaje}}</h1>
+    </div>
+    
+
+{% endblock %}
+

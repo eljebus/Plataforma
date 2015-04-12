@@ -1,0 +1,202 @@
+{% extends "template.html" %}
+ {% block estilos %}
+       {% load static from staticfiles %}
+      
+   
+
+	<link rel="stylesheet" type="text/css" href="{% static "css/style.css" %}">
+	<link rel="stylesheet" type="text/css" href="{% static "css/planes.css" %}">
+
+ {% endblock %}
+
+{% block contenido %}
+
+
+
+<h2 id='titular'>El plan adecuado</h2>
+
+<div id='todo'>
+ <div id='arriba'>
+		<img id='imagen'src="http://www.claro.com.pe/wps/wcm/connect/pe/e283fa6f-6ecf-49b8-b475-2915ca55a340/corporaciones_Planes+seg%C3%BAn+dimensionamiento.png?MOD=AJPERES&CACHEID=e283fa6f-6ecf-49b8-b475-2915ca55a340">
+
+		<div id='articulo'>
+		
+
+
+			<div id='encabezado'>
+			<label id='plan'><h3>Planes y paquetes para diferentes necesidades</h3> </label>
+			</div>
+			<article>
+				<p>Estos son algunos de los planes que nosotros le ofrecemos, sin embargo, podemos ajustarlo de acuerdo a sus necesidades.</p>
+				
+			</article>
+		</div>
+  </div>		
+
+		<section  class='planes bgcolor-naranja'>
+			<div id='nombre' >
+				Bronce
+			</div>
+
+			<div class="precio">
+				<label>$200</label>
+			</div>
+			
+			<span class='moneda'>MXN/mes</span>
+
+			<p class="descripcion">Sin Plazos Forzosos </p>
+			<hr>
+
+			<div class="contenido">
+				<ul class="paquete list-none">
+					
+					
+					<li class="grande">50 Productos
+					 <p class="chica"><strong>2 </strong>Imagenes x producto</p>
+					</li>
+					<hr>
+
+					<li class="grande">Tu Carrito de Compra
+					 <p class="chica">Implementa en tu tienda diferentes sistemas de cobro</p>
+					</li>
+					<hr>
+
+
+					<li class="grande"> 
+						<label class="icon-cross iconos"></label>
+					</li>
+					<hr >
+
+
+					<li class="grande">
+						<label class="icon-cross iconos"></label> 
+					</li>
+					<hr >
+					
+				</ul>
+			</div>
+
+			<div class='compra bgcolor-verde'>
+				<a href="/" title="Comprar plan">
+					Compra tu plan
+				</a>
+			</div>
+
+			
+
+		</section>
+
+		<section id='centro'  class='planes '>
+		  <div id='nombre' >
+				Plata
+			</div>
+
+			<div class="precio">
+				<label>$300</label>
+			</div>
+
+			<span class='moneda'>MXN/mes</span>
+
+			<p class="descripcion">Sin Plazos Forzosos </p>
+			<hr class="centro_hr">
+
+			<div class="contenido">
+				<ul class="paquete list-none">
+					
+					
+					<li class="grande"><strong>150 Productos</strong>
+					 <p class="chica"><strong>2 </strong>Imagenes x producto</p>
+					</li>
+					<hr class="centro_hr">
+
+					<li class="grande">Tu Carrito de Compra
+					 <p class="chica">Implementa en tu tienda diferentes sistemas de cobro</p>
+					</li>
+					<hr class="centro_hr">
+
+					<li class="grande">
+							<label class="icon-cross iconos"></label> 
+					 </li>
+					<hr class="centro_hr">
+
+					<li class="grande">Vinculación a Redes Sociales</li>
+					<hr class="centro_hr">
+					
+				</ul>
+			</div>
+
+			<div class='compra bgcolor-verde'>
+				<a href="/" title="Comprar plan">
+					Compra tu plan
+				</a>
+			</div>
+
+		</section>
+
+		<section id='ultimo'  class='planes bgcolor-amarillo'>
+
+		  <div id='nombre' >
+				Oro
+			</div>
+
+			<div class="precio">
+				<label>$400</label>
+			</div>
+
+			<span class='moneda'>MXN/mes</span>
+
+			<p class="descripcion">Sin Plazos Forzosos </p>
+			<hr >
+
+			<div class="contenido">
+				<ul class="paquete list-none">
+					
+					
+					<li class="grande"><strong>400 Productos</strong>
+					 <p class="chica"><strong>4 </strong>Imagenes x producto</p>
+					</li>
+					<hr >
+
+					<li class="grande">Dominio Personalizado
+					 <p class="grande">GRATIS</p>
+					</li>
+					<hr >
+
+					<li class="grande">Tu Carrito de Compra
+					 <p class="chica">Implementa en tu tienda diferentes sistemas de cobro</p>
+					</li>
+					<hr >
+
+					<li class="grande">Vinculación a Redes Sociales</li>
+					<hr >
+					
+				</ul>
+			</div>
+
+			<div class='compra bgcolor-verde'>
+				<a href="/" title="Comprar plan">
+					Compra tu plan
+				</a>
+				
+			</div>
+
+
+			
+		</section>
+
+		<div id="nota">
+		<p>* Los costos de los planes incluyen IVA </p>
+		<p>* Precios sujetos a cambios sin previo aviso.</p>
+				
+		</div>
+
+</div>
+
+
+
+	
+	
+	
+ 
+
+{% endblock %}

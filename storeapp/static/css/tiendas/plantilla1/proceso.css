@@ -1,0 +1,134 @@
+body{
+	color:#303030;
+}
+#cotainer-content{
+	min-height: 400px;
+}
+
+#terminos{
+	width: 317px;
+	margin-left: 4em;
+
+}
+
+
+input[type='checkbox']{
+	margin: 0;
+	width: 14px;
+}
+
+input[type='submit']{
+	margin: 0;
+	margin-left: 10em;
+	width:30%;
+}
+#envios{
+	width: 100%;
+	
+	box-sizing:border-box;
+	box-shadow: 0px 0px 6px 0px rgba(50, 50, 50, 0.5);
+}
+#formaPago{
+	margin-bottom: 2em;
+}
+#pagarBoton{
+	margin-left: 50%;
+	width: 51%;
+	margin-bottom: 1em;
+}
+#total{
+	min-width: 194px;
+}
+.formaPago{
+	width: 24.5%;
+	display: inline-block;
+	margin-top: 0.5em;
+	background:#303030;
+	color:white;
+	padding: 0.5em;
+	box-sizing:border-box;
+	vertical-align: top
+}
+.formaPago img{
+	height: 50px;
+	margin-top: 0.5em;
+	display: block;
+	float: right;
+}
+.class-envio{
+	width: 24%;
+}
+
+.class-envio img{
+
+	width:40%;
+}
+.class-envio figcaption{
+	width: 40%
+
+}
+.radio-envio{
+	width: 150px;
+}
+.triple{
+	width: 21%;
+}
+
+@media (max-width: 1100px){
+	#send-form input{
+		width: 45%;
+	}
+	#send-form .doble{
+		width: 24%
+	}
+	#send-form input[type='checkbox']{
+		width:20px;
+	}
+	#terminos{
+		width: 346px
+	}
+	#send-form input[type='submit']{
+		width: 25%;
+		margin-left: 0
+	}
+	
+	.formaPago,.class-envio{
+		width: 48%
+	}
+	#send-form input[type='radio']{
+		width: 20px;
+
+	}
+
+	
+}
+
+@media (max-width: 860px){
+	#send-form input{
+		width: 100%;
+	}
+	#send-form .doble{
+		width:45%
+	}
+	#send-form input[type='checkbox']{
+		width:20px;
+	}
+	#terminos{
+		width: 100%;
+		margin: 0
+	}
+	#send-form input[type='submit']{
+		width: 100%;
+		margin-left: 0;
+		margin-top: 1em
+	}
+	.precio{
+		display: block;
+		margin: 0;
+		width: 100%
+	}
+	.formaPago,.class-envio{
+		width: 100%
+	}
+
+}

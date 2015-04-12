@@ -1,0 +1,92 @@
+  {% extends "adminTemplate.html" %}
+
+  {% block estilos %}
+  {% load static from staticfiles %}
+    
+     <link rel="stylesheet" href="{% static "css/panel/pedidos.css" %}" />
+  {% endblock %}
+
+	{% block content %}
+
+        <section id='contenedor-tabla'>
+
+            
+            <table id='pedidos' cellspacing='0'>
+
+            <tr  id='cabecera' height='20'>
+              <td width='90' >Codigo</td>
+              <td width='100' >Fecha</td>
+              <td width='150' >Precio</td>
+              <td width='120' >Cliente</td>
+              <td width='200' >Direccion</td>
+              <td width='70' >Editar</td>
+              
+              <td width='80' >Borrar</td>
+            </tr>
+              {% for p in pedidos %}
+              <tr>
+                <td >{{p.idpedidos}}</td>
+                <td >{{p.fecha|date:"d/m/Y"}}</td>
+                <td class='color-naranja negritas'>
+
+                    {% load humanize %}
+
+                     $ <span id='precio'>{{p.importe|floatformat:2|intcomma}}</span>
+
+                </td>
+                <td >{{p.clientes.nombre}}</td>
+                <td >
+                  {{p.direccionenvio|safe}}
+                </td>
+                <td >
+                  <a href="/pedido/{{p.idpedidos}}/" title="Detalle de Pedido">
+                    <label class="icon-cog inline iconosp color-naranja"></label>
+                  </a>
+                </td>
+                <td > 
+                 <label class='icon-happy iconosp color-verde inline delete' data-id='{{p.idpedidos}}' data-elemento='Pedidos' title='Eliminar'></label>
+                </td>
+              </tr>
+              {% empty %}
+                  <tr>
+                    <td colspan='7'>
+                      No se encontraron Pedidos {{status}}s  
+                      <label class='icon-sad color-naranja'></label>
+                    </td>
+                  <tr>
+
+              {% endfor %}
+              
+            
+
+            </table>
+              <div  id='paginas'>
+              {% if pedidos.has_previous %}
+                  <a href="/pedidosPanel/{{status}}/?page={{ pedidos.previous_page_number }}"><label class='icon-arrow-left'></label></a>
+              {% endif %}
+
+              <span class="current">
+                  {{ pedidos.number }} de {{ pedidos.paginator.num_pages }}
+              </span>
+
+              {% if pedidos.has_next %}
+                  <a href="/pedidosPanel/{{status}}/?page={{ pedidos.next_page_number }}">
+                    <div class='right inline'>
+                      <label class='icon-arrow-left'></label>
+                    </div>
+                    
+                  </a>
+              {% endif %}
+          </div>
+          
+        </section>
+           
+
+    {% endblock %}
+
+    {% block scripts %}
+
+      <script src="{% static "js/panel/eliminar.js" %}"></script>
+
+    {% endblock %}
+

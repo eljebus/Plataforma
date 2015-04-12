@@ -1,0 +1,208 @@
+ body{
+        color: #525151;
+      }
+      table
+      {
+        
+        width: 100%;
+        height: auto;
+      }
+
+      #todo
+      {
+      
+        margin-top: 20px;
+        height: auto;
+        font-family: 'Ubuntu', sans-serif;
+      }
+      #detalle-pedido
+      {
+    
+        width: 100%;
+        margin-bottom: 20px;
+        min-height: 275px;
+      }
+      #contenedor-pedidos
+      {
+        border: solid 1px #e1e0e0;
+        width: 47%;
+        height: 275px;
+        margin-right: 50px;
+        display: inline-block;
+        vertical-align: top;
+        padding: 10px;
+        box-sizing:border-box;
+        
+      }
+      #contenedor-pedidos .contenedor{
+        height: 224px;
+      }
+      #contenedor-envios
+      {
+        border: solid 1px #e1e0e0;
+        width: 47.7%;
+        min-height: 275px;
+        display: inline-block;
+        padding: 10px;
+        box-sizing:border-box;
+      }
+      #contenedor-productos
+      {
+        
+        width: 100%;
+         border: solid 1px #e1e0e0;
+        padding: 10px;
+        box-sizing:border-box;
+        max-height: 300px;
+       
+      }
+
+      #contenedor-productos .contenedor{
+        max-height: 253px;
+
+      }
+    
+      .tabla
+      {
+        margin-top: 1em;
+
+
+      }
+      .tabla tr
+      {
+        text-align: center;
+        color: #3c474d;
+        transition:all ease 0.4s;
+      }
+      .tabla tr:hover
+      {
+        cursor: pointer;
+        border-bottom: solid 1px;
+      }
+      .tabla tr:hover td
+      {
+        border: none
+      }
+      .tabla tr td
+      {
+        padding:3px;
+        padding-bottom: 0.5em;
+        padding-top: 0.5em;
+        border-bottom: 1px #a5a5a5 solid;
+      }
+      .cabecera
+      {
+        text-align: center;
+        font-family: 'Ubuntu', sans-serif;
+        font-size: 1em;
+        font-weight: bold;
+        padding-bottom: 0.5em;
+        padding-top:0.5em;
+      }
+      .encabezado
+      {
+        font-weight: bold;
+        font-size: 2em;
+        font-family: 'Ubuntu', sans-serif;
+
+      }
+      .pequena
+      {
+       
+        font-size: 1em;
+        font-family: 'Ubuntu', sans-serif;
+        margin-left: 10px;
+
+      }
+      .pequeno
+      {
+       
+        background-color: black;
+        text-align: center;
+        display: inline-block;
+        float: right;
+        cursor: pointer;
+      }
+
+      .datos
+      {
+         font-weight: bold;
+         font-size: 1em;
+         font-family: 'Ubuntu', sans-serif;
+      }
+      .contenedor
+      {
+        overflow: auto;
+        width: 100%;
+       
+      }
+      .contenedor::-webkit-scrollbar {
+          width: 16px;
+          padding: 5px;
+      }
+         
+      .contenedor::-webkit-scrollbar-track {
+        -webkit-border-radius: 10px;
+        
+      }
+
+      .contenedor::-webkit-scrollbar-track-piece {
+        background-color: #f1f1f1;
+        border: solid 1px #d9d9d9;
+        padding: 5px;
+
+      }
+         
+      .contenedor::-webkit-scrollbar-thumb {
+        border-radius: 2px;
+         background: #d9d9d9;
+        border: solid 1px #c1c1c1;
+      }
+
+      .contenedor::-webkit-scrollbar-thumb:window-inactive {
+        background: #c1c1c1;
+      }
+      #datos{
+        padding: 1em;
+        border: dashed 1px;
+        box-sizing:border-box;
+
+      }
+      .tabla{
+        text-align: center
+      }
+      .boton{
+      	background: #1e8bc3;
+      	text-align: center;
+      	width: 132px;
+      }
+      #pagar
+      {
+      	width: 132px;
+      }
+            
+@media (max-width: 1100px){
+  #contenedor-pedidos {
+    margin-right:36px;
+  }
+}
+@media (max-width: 860px){
+   #contenedor-pedidos {
+    margin-right:0;
+    display: block;
+    width: 100%;
+    max-height: 224px;
+    margin-bottom: 0.5em; 
+  }
+  #contenedor-pedidos .contenedor {
+    max-height: 224px;
+  }
+  #contenedor-envios{
+    display: block;
+    width: 100%;
+  }
+  .sesion{
+    display: block;
+    margin-top: 1em;
+  }
+}

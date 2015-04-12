@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8" />
+    <link href='http://fonts.googleapis.com/css?family=Ubuntu|Montserrat' rel='stylesheet' type='text/css'>
+      {% load static from staticfiles %}
+    <!--<base href="" />-->
+    <link rel="stylesheet" type="text/css" href="{% static "css/icons.css" %}">
+    <link rel="stylesheet" type="text/css" href="{% static "css/flat/flaticons.css" %}">
+    <link rel="stylesheet" type="text/css" href="{% static "css/tema.min.css" %}">
+    <link rel="stylesheet" type="text/css" href="{% static "css/panel/normalize.css" %}">
+    <link rel="stylesheet" type="text/css" href="{% static "css/tema.min.css" %}">
+    <link rel="stylesheet" href="{% static "css/panel/adminTemplate.css" %}" />
+    
+
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+
+
+
+       
+       {% block estilos %}
+
+        {% endblock %}
+</head>
+
+<body>
+
+<div id='superior'>
+    
+</div>
+
+<section id='contenedor'>
+  {%  include "headerAdmin.html" %}
+
+  {%  include "navAdmin.html" %}
+       
+        
+        <div id='container'>
+        {% block content %}
+
+        {% endblock %}
+        </div>
+        
+
+
+        
+
+
+</section>
+    <div id='confirmacion' title='Comfirmar'>
+
+      
+          <p><span class="ui-icon ui-icon-alert" style="float:left; margin:0 7px 20px 0;"></span>
+       
+          Estas seguro de querer borrar este elemento?
+      </p>
+
+    </div>
+
+
+       
+{%  include "footerAdmin.html" %}
+
+  <script src="{% static "js/prefixfree.js" %}"></script>
+  <script src="{% static "js/modernizr.js" %}"></script>
+  <script src="{% static "js/holder.js" %}"></script>
+  <script src="{% static "js/index.js" %}"></script>
+  <script >
+    $(function() {
+      console.log(1);
+     var pgurl =document.URL.substr(document.URL.lastIndexOf("0/")+1);
+      console.log('esta es la '+pgurl);
+         $("nav ul a").each(function(){
+          console.log('http://wido.mx'+$(this).attr("href") );
+          if('http://wido.mx'+$(this).attr("href") == pgurl || $(this).attr("href") == '' ){
+            $(this).find(':first-child').addClass("active");
+
+            //$(this).parent().parent().addClass("active")
+          }
+            
+
+
+         })
+    });
+  </script>
+
+  {% block scripts %}
+  
+  {% endblock %}
+
+
+</body>
+
+</html>

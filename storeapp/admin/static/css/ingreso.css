@@ -1,0 +1,78 @@
+	#ingreso
+	{
+		padding: 1em;
+		background-color: white;
+		color:#a5a5a5;
+		max-width: 404px;
+		overflow: hidden;
+		margin: auto;
+		margin-top: 3em;
+		margin-bottom: 3em;
+		box-sizing:border-box;
+	}
+	input[type="submit"]:hover
+	{
+	   background-color: #35bc7a;
+	}
+	#ingreso input
+
+	{
+	  
+	  width: 92%;
+	  border-bottom: solid 2px #a5a5a5;
+	  padding-left: 0;
+	}
+	#ingreso input[type="submit"] 
+	{
+		display: inline-block;
+	   text-align: center;
+	   width: 40%;
+	   padding-left: 1.25em;
+	   border: none;
+		margin-left: 6.7%;
+		vertical-align: middle;
+	  
+
+	}
+	#ingreso .color-rojo
+	{
+		color: white;
+		height: 30px;
+		font-style: bold;
+		font-family: 'Ubuntu', sans-serif;
+		font-size: 1.6em;
+		text-align: center;
+		margin-top: 0px;
+		padding: 5px;
+		
+	}
+	#record
+	{
+		display: inline-block;
+		width: 50%;
+		background-color:white;
+		text-align: left;
+		vertical-align: middle;
+	}
+	
+	}
+	#record input[type="checkbox"],label
+	{
+		display: inline-block;
+	}
+	#record label
+	{
+		width: 50%;
+		color:#3c474d;
+	}
+	#record input[type="checkbox"]
+	{
+		width: 10%;
+	}
+	#invalid
+	{
+		text-align: center;
+		color: #f05a49;
+		margin-bottom: 0;
+		font-weight: bold;
+	}

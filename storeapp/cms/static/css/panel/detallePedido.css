@@ -1,0 +1,126 @@
+	table
+	{
+	  
+	  width: 100%;
+	  height: auto;
+	  margin-top: 10px;
+
+
+	}
+
+	tbody
+	{
+	display: table-row-group;
+	vertical-align: middle;
+	border-color: inherit;
+	}
+
+	#container{
+		width: 72%;
+	}
+
+
+	#pedidos tr 
+	{
+	text-align: center;
+	color: #3c474d;
+
+	}
+
+	#pedidos tr:hover td
+	{
+	border: none;
+	background-color: white;
+	transition: all ease 0.4s;
+	}
+
+	#pedidos tr td 
+	{
+	padding: 3px;
+	padding-bottom: 0.5em;
+	padding-top: 0.5em;
+	border-bottom: 1px #a5a5a5 solid;
+	}
+
+	#pedidos tr td img
+	{   width: 70%;
+		height: 50px;
+		border: solid 1px;
+		margin-top: 10px;
+	}
+
+	#pedidos tr td label
+	{
+	  font-size: 1em;
+
+	}
+
+
+
+	#pedidos #cabecera td 
+	{
+	font-family: 'Ubuntu', sans-serif;
+	font-size: 1em;
+	font-weight: bold;
+	padding-bottom: 0.5em;
+	padding-top: 0.5em;
+	}
+	#completar{
+		width: 50%;
+		margin-left: 5%
+	}
+
+	#detalles
+	{
+		background-color: white;
+		width: 100%;
+		height: auto;
+		padding-top: 10px;
+		padding-bottom: 10px;
+		margin-top: -5px;
+		padding: 1em;
+		box-sizing:border-box;
+	}
+
+
+	#detalles ul li{
+		width: 49%;
+		display: inline-block;
+		vertical-align: top;
+	}
+	#detalles .list-interno li{
+		width: 100%;
+		margin-bottom: 0.5em;
+	}
+	#total{
+		font-size: 1.5em;
+		margin-top: 0.25em;
+		margin-bottom: 0.25em
+	}
+
+
+	#cancelar
+	{
+		
+		width: auto;
+		height: 20px;
+		color: white;
+		font-family: 'Ubuntu', sans-serif;
+	    font-size: 1em;
+	    font-weight: bold;
+		background-color: #1e8bc3;
+		display: inline-block;
+		padding: 5px;
+		float: right;
+		margin-right: 20px;
+
+	}
+	li{
+		overflow: hidden
+	}
+	#comentario{
+		padding: 1em;
+		box-sizing:border-box;
+		background: #ebeff2;
+		margin-top: 1em
+	}

@@ -1,0 +1,98 @@
+{% extends "adminTemplate.html" %}
+
+  {% block estilos %}
+    
+    {% load static from staticfiles %}
+     <link rel="stylesheet" href="{% static "css/panel/paquetes.css" %}" />
+     <link rel="stylesheet" href="{% static "css/panel/pasarelas.css" %}" />
+  {% endblock %}
+
+	{% block content %}
+	{% if pago != '' %}
+	<p class='color-rojo bgcolor-rojo centrado'>{{Error|safe}}</p>
+	{% else %}
+		<p class='listo {{color}}' style='display:{{ver}}'>
+		    <label class='{{icono}}'> </label>{{letrero}}
+		</p>
+
+		<a href="https://www.conekta.io/" title="Conekta" target='blank'>
+			<img src="{{pasarela.logo}}" alt="">
+		</a>
+
+		{% if contador > 0 %}
+			
+		{% else %}
+			<article>
+				{{pasarela.descripcion|safe}}
+			</article>
+			<a href="https://admin.conekta.io/users/sign_up" target='blank'title="Crear Cuenta Conekta">
+				<p class='boton bgcolor-verde'>Crear Cuenta<label class="icon-arrow-right inline iconosp"></label></p> 
+			</a>
+		{% endif %}
+		<br>
+		<br>
+		<ARTICLE>
+	    	Recuerda que las pasarelas de Pago como CONEKTA generan comisiones por sus cobros en línea, los cuales son independientes de esta plataforma. &nbsp;<a href="https://www.conekta.io/comisiones" title="Comisiones Conekta" target='blank' class='color-azul'> Ver comisiones</a>
+	    </ARTICLE>   
+	    <p class='punteado'>
+	    	Copia y pega la siguiente dirección <span class='color-naranja subrayado manita' id='webhook'>http://wido.mx/webhook/</span> en la sección de 
+	    	<a href="https://admin.conekta.io/es#developers.webhooks" class='color-azul' title="webhooks CONEKTA" target='blank'>
+		    	Webhooks 
+		    </a>
+	    	en tu panel de CONEKTA
+	    </p>
+	    <br>
+		<br>
+		<form action='/pasarelas/' method='POST'>
+		{% csrf_token %}
+	    {{form.as_p}}
+			<input type="text" name="privada" value="{{pasarelaE.llaveprivada}}" placeholder="Llave Privada">
+			<input type="text" name="publica" value="{{pasarelaE.llavepublica}}" placeholder="Llave Pública">
+			{% if contador > 0 %}
+				<div id='opciones'>
+					<h2> Opciones Adicionales</h2>
+
+					{% for m in metodos %}
+		
+					<div class='metodo'>
+						{% if m.nombre in metodosE %}
+							<input type="checkbox" name="metodos[]" checked value="{{m.nombre}}" class='inline'>
+
+						{% else %}
+							<input type="checkbox" name="metodos[]" value="{{m.nombre}}" class='inline'>
+						{% endif %}
+
+						<img src="{{m.logo}}" class='inline'>
+						<div class='inline descripcion'> 
+							{{m.descripcion|safe}}
+						</div>
+					</div>
+
+					{% endfor %}
+				
+					
+				</div>
+			{% endif %}
+			<input type="submit" name="" value="Guardar Cambios">
+			
+
+		</form>
+	{% endif %}
+
+
+	
+    {% endblock %}
+
+    {% block scripts %}
+
+      
+    <script src="{% static "js/panel/eliminar.js" %}"></script>
+    <script>
+    $('#webhook').on('click',copiar);
+    function copiar(e){
+    	valor=$('#webhook').html();
+		window.prompt("Para copiar el texto: Ctrl+C, Enter", valor);
+		 
+    }
+    </script>
+    {% endblock %}

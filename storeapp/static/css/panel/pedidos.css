@@ -1,0 +1,50 @@
+#pedidos
+{
+	margin-top: 1em
+}
+#pedidos tr
+{
+  text-align: center;
+  color: #3c474d;
+  transition:all ease 0.4s;
+}
+#pedidos tr:hover
+{
+	cursor: pointer;
+	background: white;
+
+	
+}
+#pedidos tr:hover td
+{
+	border: none
+}
+
+#pedidos tr td
+{
+	padding:3px;
+	padding-bottom: 0.5em;
+	padding-top: 0.5em;
+	border-bottom: 1px #a5a5a5 solid;
+}
+
+#pedidos #cabecera td
+{
+
+    
+    font-family: 'Ubuntu', sans-serif;
+    font-size: 1em;
+    font-weight: bold;
+    padding-bottom: 0.5em;
+    padding-top:0.5em;
+   
+}
+#container{
+	width:72%;
+	display: inline-block;
+}
+#contenedor-tabla{
+	width: 100%;
+	padding: 0;margin-top: 0
+}
+

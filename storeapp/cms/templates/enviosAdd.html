@@ -1,0 +1,138 @@
+ {% extends "adminTemplate.html" %}
+
+  {% block estilos %}
+    {% load static from staticfiles %}
+     <link rel="stylesheet" href="{% static "css/panel/productosAdd.css" %}" />
+     <link rel="stylesheet" href="{% static "css/panel/envios.css" %}" />
+
+  {% endblock %}
+
+	{% block content %}
+
+	 <section id='containter'>
+
+        {% for m in metodos %}
+        <div class='metodos'>
+           <img src="{% static m.logo %}" title="{{m.nombre}}" class='inline top'>
+         
+              <article class='inline top'>
+                {{m.datos|safe}}
+              </article>
+              
+           
+                  <a href="/paquetes/{{m.idformaenvio}}/" title="{{m.nombre}}" class='inline bgcolor-verde' >
+
+                    <label class='icon-plus iconos'></label><br>Agregar Paquetes
+                  </a>
+        </div>
+
+        {% endfor %}
+  
+
+        {% for me in metodosExtra %}
+
+
+          <div class='metodos'>
+           <img src="{% static me.logo%}" title="{{me.nombre}}" class='inline top'>
+         
+              <article class='inline top'>
+                {{me.datos|safe}}
+              </article>
+              
+           
+                  <p title="{{me.nombre}}" class='inline bgcolor-naranja agregar top-none bottom-none add' data-metodo='{{me.idformaenvio}}'>
+
+                    <label class='icon-plus iconos'></label><br>Agregar Este Método
+                  </p>
+            </div>
+       
+        {% endfor %}
+
+
+
+    <a href="/metodo/nuevo/" title="Agregar método">
+      <p class="boton bgcolor-verde color-blanco centrado negritas" id='metodo-add'>
+          <label class="icon-plus"> </label>
+          Agregar método de envio
+      </p>
+     
+    </a>
+   
+   </section>
+
+    {% endblock %}
+
+    {% block scripts %}
+
+      <script>
+
+      $(document).on('ready',iniciar);
+      
+      function iniciar(){
+
+                //mandar ajax sin token----------------------------------------
+          $(document).ajaxSend(function(event, xhr, settings) {
+            function getCookie(name) {
+                var cookieValue = null;
+                if (document.cookie && document.cookie != '') {
+                    var cookies = document.cookie.split(';');
+                    for (var i = 0; i < cookies.length; i++) {
+                        var cookie = jQuery.trim(cookies[i]);
+                        // Does this cookie string begin with the name we want?
+                        if (cookie.substring(0, name.length + 1) == (name + '=')) {
+                            cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                            break;
+                        }
+                    }
+                }
+                return cookieValue;
+            }
+            function sameOrigin(url) {
+                // url could be relative or scheme relative or absolute
+                var host = document.location.host; // host + port
+                var protocol = document.location.protocol;
+                var sr_origin = '//' + host;
+                var origin = protocol + sr_origin;
+                // Allow absolute or scheme relative URLs to same origin
+                return (url == origin || url.slice(0, origin.length + 1) == origin + '/') ||
+                    (url == sr_origin || url.slice(0, sr_origin.length + 1) == sr_origin + '/') ||
+                    // or any other URL that isn't scheme relative or absolute i.e relative.
+                    !(/^(\/\/|http:|https:).*/.test(url));
+            }
+
+
+            function safeMethod(method) {
+                return (/^(GET|HEAD|OPTIONS|TRACE)$/.test(method));
+            }
+
+            if (!safeMethod(settings.type) && sameOrigin(settings.url)) {
+                xhr.setRequestHeader("X-CSRFToken", getCookie('csrftoken'));
+            }
+        });
+        //-----------------------------------------------------------------------
+
+
+      $('.agregar').on('click',addForma);
+      }
+      function addForma(e){
+
+        e.preventDefault();
+        console.log('test');
+        data="forma="+$(this).data('metodo');
+        elemento=$(this).parent();
+        $(this).hide('slow',$(elemento).html('Espere...'));
+
+        $.post( "/metodoE/",data, function( data ) 
+              {
+                  if(data.Error==true)
+                    alert('Ocurrio un error')
+
+                  else
+                    location.reload(); 
+                  });
+      }
+
+
+      </script>
+    {%  endblock %}
+

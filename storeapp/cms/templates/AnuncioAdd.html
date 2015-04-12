@@ -1,0 +1,58 @@
+  {% extends "adminTemplate.html" %}
+
+  {% block estilos %}
+    {% load static from staticfiles %}
+
+    <link rel="stylesheet" href="{% static "css/panel/anuncios.css" %}" />
+    <link rel="stylesheet" href="{% static "css/editor.css" %}" />
+    <link rel="stylesheet" type="text/css" href="{% static "css/tema.min.css" %}">
+  {% endblock %}
+
+	{% block content %}
+
+        <section id='container-content'>
+          <p class='listo {{color}}' style='display:{{ver}}'>
+            <label class='{{icono}}'> </label>{{letrero}}
+          </p>
+
+          <form action="/Anuncio/nuevo/" method="POST" accept-charset="utf-8" id='product-form' enctype="multipart/form-data">
+          {% csrf_token %}
+            
+            <input type="text" name="nombre" placeholder='Nombre del Anuncio' required >
+              <br>
+              <ul id='imagenes-form'class='list-none inline ultimo'>
+       
+               <div id='tumbs-container' class='inline'></div>
+
+
+                <li class='ultimo '>
+                  <div id='container-spot'>
+                     <label class='icon-plus iconos'></label>
+                    Agregar Imagen
+                  </div>
+                  <input type="file" name="file" id='add-imagen'multiple='true' required>
+
+                 
+                </li>
+              </ul>
+              <br><br>
+              <textarea name="descripcion" class='editor'>Descripción detallada</textarea>
+
+
+            <input type="submit" name="" value="Guardar Anuncio">
+
+         </form>
+          
+        </section>      
+  
+    {% endblock %}
+
+   {% block scripts %}
+
+    <script src="{% static "js/editor.js" %}"></script>
+    <script src="{% static "js/panel/imagenes.js" %}"></script>
+    <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+    <script src="{% static "js/panel/productos.js" %}"></script>
+
+  {% endblock %}
+

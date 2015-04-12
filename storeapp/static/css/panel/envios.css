@@ -1,0 +1,76 @@
+.metodos{
+	border: dotted 1px;
+	background: white;
+	padding: 0.5em;
+	box-sizing:border-box;
+	margin-bottom: 1em;
+
+}
+.metodos img{
+	width: 14%;
+
+}
+.metodos article{
+	width: 66%;
+	margin-left: 2%;
+	margin-right: 2%;
+}
+.metodos a,.metodos .add{
+	width: 15%;
+	height: 118px;
+	text-align: center;
+	padding: 1em;
+	padding-top: 1.5em;
+	box-sizing: border-box;
+	cursor: pointer;
+	color:white;
+
+}
+.imagen img{
+	width: 100%;
+	height: 100%;
+}
+input[type='search']{
+	display: none
+}
+header h2{
+	width: 550px
+}
+.ultimo input
+{
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	top: 0;
+	left: 0;
+	opacity: 0;
+	cursor:pointer;
+}
+.ultimo
+{
+	display: inline-block;
+}
+.vinculo{
+	width: 100%;
+	height: 100%;
+	display: block;
+}
+.vinculo label{
+	cursor:pointer;
+}
+#container
+{
+	margin-left: 1em;
+	margin-top: 1em;
+	display: inline-block;
+	width: 72%;
+}
+#imagenes-form {
+	width: 270px;
+	display: block;
+}
+#tumbs-container .logo{
+	width: 141px;
+	display: inline-block;
+	border: dashed 1px white;
+}

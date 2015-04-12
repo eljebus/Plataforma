@@ -1,0 +1,50 @@
+/* DASHBOARD */
+
+.dashboard .module table th {
+    width: 100%;
+}
+
+.dashboard .module table td {
+    white-space: nowrap;
+}
+
+.dashboard .module table td a {
+    display: block;
+    padding-right: .6em;
+}
+
+/* RECENT ACTIONS MODULE */
+
+.module ul.actionlist {
+    margin-left: 0;
+}
+
+ul.actionlist li {
+    list-style-type: none;
+}
+
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+ul.actionlist li.changelink {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    -o-text-overflow: ellipsis;
+}
+=======
+=======
+>>>>>>> 4157af1dcf4cac4cd7759dd2e39135ae038ddfbd
+=======
+>>>>>>> 8e10ecd6f2e11ef996d80983b30e3f4e8c02a214
+ul.actionlist li {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    -o-text-overflow: ellipsis;
+}
+<<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> 9bf5737486435174b671ca752f3fb50ab92d0c1a
+=======
+>>>>>>> 4157af1dcf4cac4cd7759dd2e39135ae038ddfbd
+=======
+>>>>>>> 8e10ecd6f2e11ef996d80983b30e3f4e8c02a214

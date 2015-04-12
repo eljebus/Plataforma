@@ -1,0 +1,16 @@
+.precio
+{
+	text-align: center;
+	box-sizing: border-box;
+}
+#slider{
+	overflow: hidden;
+}
+#slider img{
+	width: 100%;
+
+}
+.caption{
+	bottom:0;
+	width: 100%;
+}

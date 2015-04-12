@@ -1,0 +1,113 @@
+a{
+	text-decoration: none;
+}
+#lista-clientes li{
+	margin-right: 1.3%;
+	vertical-align: top;
+}
+
+
+.clientes 
+	{
+	width: 23.7%;
+	margin: auto;
+	background-color: white;
+	padding: 1em;
+	margin-top: 20px;
+	display: inline-block;
+	box-sizing: border-box;
+	text-align: center;
+	}
+
+
+#lista-clientes .ultimo{
+	margin-right: 0;
+}
+
+	.clientes img
+	{
+		height: 100px;
+		max-width: 100%;
+		margin-right: 10px;
+	}
+	.clientes h3{
+		margin-bottom: 5px;
+	}
+	.descripcion
+	{
+		
+		display: inline-block;
+		vertical-align: top;
+		width: 100%;
+		height: auto;
+		font-family: 'Ubuntu', sans-serif;
+		text-align: center;
+	}
+	.descripcion .boton{
+		display: block;
+		margin: 0;
+		width: 100%;
+		box-sizing: border-box;
+	}
+   
+	
+	.ver
+	{
+		text-align: center;
+	}
+	.ver:hover
+	{
+		background-color: #35bb79;
+	}
+	@media (max-width: 1050px){
+		.clientes img{
+			display: block;
+			width: 50%;
+			margin: auto
+		}
+		.descripcion{
+			width: 100%;
+			margin-bottom: 1em;
+			margin-top: 1em;
+		}
+		.clientes{
+			width: 49%;
+
+		}
+		#lista-clientes li{
+			height: 222px;
+		}
+		#lista-clientes li:nth-child(2n){
+			margin-right: 0;
+
+		}
+	}
+
+	@media (max-width: 860px){
+		
+	
+		
+	}
+	@media (max-width: 560px){
+
+		.clientes{
+			width: 100%;
+
+		}
+		#lista-clientes li:nth-child(2n+2){
+			margin-right: 0;
+		}
+		#lista-clientes li{
+			height: 222px;
+		}
+
+
+		.descripcion{
+			margin-top: 1em;
+		}
+		.boton{
+			width: 100%;
+			margin: 0;
+			box-sizing:border-box;
+		}
+	}

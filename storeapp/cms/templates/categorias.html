@@ -1,0 +1,74 @@
+ {% extends "adminTemplate.html" %}
+
+  {% block estilos %}
+    {% load static from staticfiles %}
+     <link rel="stylesheet" href="{% static "css/panel/productos.css" %}" />
+  {% endblock %}
+
+	{% block content %}
+       
+   
+        <section id='contenedor-tabla'>
+
+            
+            <table id='productos' cellspacing='0'>
+
+            <tr  id='cabecera' height='20'>
+              <td width='90' >Codigo</td>
+              <td width='400' >Nombre</td>
+              <td >Detalle</td>
+              <td width='70' >Editar</td>
+              <td width='60' >Eliminar</td>
+            </tr>
+
+          	{% for c in categorias %}
+			   <tr>
+                <td >
+                	{{c.idcategorias}}
+                </td>
+                <td >
+                	{{c.nombre}}
+                </td>
+            
+                <td >
+                	{{c.descripcion|safe}}
+                </td>
+
+                 <td class='centrado color-naranja'>
+                  <a href="/categoria/{{c.idcategorias}}/" title="Modificar" class='modify'>
+                    <label class='icon-cog inline iconosp'></label>
+                  </a>
+                  
+                </td>
+               
+                <td class='centrado'> 
+                  <label class='icon-happy iconosp color-verde inline delete' data-id='{{c.idcategorias}}' data-elemento='Categorias' title='Eliminar'></label>
+                </td>
+              </tr>
+              {% empty %}
+                <tr>
+                  <td colspan="4">No se encontraron Categorías <label class='icon-sad color-naranja'></label></td>
+                </tr>
+			{% endfor %}
+              
+
+            </table>
+
+          
+        </section>
+
+
+
+   
+
+
+
+
+    {% endblock %}
+
+    {% block scripts %}
+
+      <script src="{% static "js/panel/eliminar.js" %}"></script>
+
+    {% endblock %}
+

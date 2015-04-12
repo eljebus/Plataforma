@@ -1,0 +1,132 @@
+ {% extends "adminTemplate.html" %}
+
+  {% block estilos %}
+    {% load static from staticfiles %}
+     <link rel="stylesheet" href="{% static "css/panel/paquetes.css" %}" />
+     <link rel="stylesheet" href="{% static "css/editor.css" %}" />
+  {% endblock %}
+
+	{% block content %}
+  <p class='listo {{color}}' style='display:{{ver}}'>
+    <label class='{{icono}}'> </label>{{letrero}}
+  </p>
+
+	<form action="/paquetes/nuevo/{{metodo}}/" method="POST" accept-charset="utf-8" id='product-form'>
+    {% csrf_token %}
+    {{form.as_p}}
+		<input type="text" name="nombre" placeholder='Nombre del Paquete' autocomplete="off" list='paquetes' id="pack" required>
+		<datalist id="paquetes">
+			{% for p in paquetes %}
+			 <option value="{{p.nombre}}">
+			{% endfor %}
+		
+		</datalist>
+		<input type='number' class="triple" placeholder='Maximo' name="maximo" id='max' required>
+
+		<div id="zonas">
+			<p class='item add-item'><label class='icon-plus'> </label>Agregar Zona</p>
+
+			<ul class='list-none' id='contenedor-zonas'>
+				<li class='container-zone'>
+					
+					<select name="zona_0" class='zona-add'>
+					
+					</select>
+					<input type="text" name="precio_0" value="" placeholder='Precio'>
+
+				</li>
+			</ul>
+		</div>
+			<p class='top-none bottom-none' id='p-c'>Selecciona las categorias</p>	
+			<ul class='list-none' id='productos'>
+
+				{% for c in categorias %}
+				
+					<li class='product-containter'>
+						<input type="checkbox" name="categorias[]" value="{{c.idcategorias}}" class='inline check'><span class='inline texto'>{{c.nombre}}</span>
+					</li>
+					{% empty %}
+					<li>
+						<p>
+							<label class='icon-sad color-rojo'></label> No hay Categorias Disponibles
+						</p>
+					</li>
+
+				{% endfor %}
+
+				
+				
+				
+			</ul>
+			
+
+
+
+
+		
+    <input type="submit" name="" value="Guardar Categoría" >
+	</form>
+
+	 <div id="zona" title="Nueva Zona">
+
+	     <h2> Agregar de zonas</h2>
+	      
+
+	 
+	 
+	  
+	  <form id='zone-form' >
+	    {% csrf_token %}
+
+	    <input type="text" name="nombre" value="" required placeholder='Nombre' class='unico-doble'>
+	    <input type="text" name="descripcion" value="" required placeholder='Descripción' class='unico-doble'>
+
+	    <div id="estados">
+	    	<ul class='list-none'>
+
+	    	</ul>
+
+	    	
+	    </div>
+	     <input type='submit' value='Guardar Zona' class='boton' id='saveZone'>
+
+
+	  </form>
+
+
+	 
+	</div>
+
+
+    {% endblock %}
+
+    {% block scripts %}
+	
+    <script src="{% static "js/editor.js" %}"></script>
+    <script src="{% static "js/panel/paquetes.js" %}"></script>
+	<script>
+	var listaEstadosZonas='';
+	var listaPaquetes=new Array();
+
+	var listaEstados=['Aguascalientes','Baja California','Baja California Sur','Campeche','Chiapas','Chihuahua','Coahuila','Colima','Distrito Federal','Durango','Estado de México','Guanajuato','Guerrero','Hidalgo','Jalisco','Michoacán','Morelos','Nayarit','Nuevo León','Oaxaca','Puebla','Querétaro','Quintana Roo','San Luis Potosí','Sinaloa','Sonora','Tabasco','Tamaulipas','Tlaxcala','Veracruz','Yucatán','Zacatecas'];
+
+
+
+	{% for p in paquetes %}
+	 listaPaquetes.push('{{p.nombre}}');
+	{% endfor %}
+		
+	listaZonas='<option value="">Zona</option>';
+	{% for z in zonas %}
+		listaZonas+='<option value="{{z.idzonas}}">{{z.nombre}}</option>';
+		listaEstadosZonas+='{{z.estados}}';
+
+	{% endfor %}
+
+
+	
+	</script>
+
+	{% endblock %}
+
+

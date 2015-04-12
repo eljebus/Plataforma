@@ -1,0 +1,36 @@
+{% extends "template.html" %}
+{% block estilos %}
+{% load static from staticfiles %}
+  <link rel="stylesheet" type="text/css" href="{% static "css/ingreso.css" %}">
+{% endblock %}
+
+{% block contenido %}
+
+
+	
+	
+	<form id='ingreso' method='POST' action="/verificar/">
+	<div class='color-rojo'>
+
+		Bienvenido
+	</div>
+	<p id='invalid'>
+		{{Usuario}}
+	</p>
+		{% csrf_token %}
+		<input type='text' placeholder='Ingresa tu nombre de usuario' required name="Nombre">
+		<input type = "password" placeholder='Contraseña' required name="Contrasena">
+		<div id="record">
+			<input type="checkbox" value="true" name="recordar" id='recordar'>
+			<label for = "recordar">Recordarme</label>
+		</div>
+		
+		<input type='submit' value='Ingresar' class='boton'>
+
+	
+
+	
+	</form>
+ 
+
+{% endblock %}

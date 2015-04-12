@@ -1,0 +1,43 @@
+{% extends "template.html" %}
+{% block estilos %}
+       {% load static from staticfiles %}
+  			<link rel="stylesheet" type="text/css" href="{% static "css/galeria.css" %}">
+
+
+{% endblock %}       
+
+{% block contenido %}
+	<h1>Nuestros Clientes</h1>
+	<ul class='list-none' id='lista-clientes'>
+		<center>
+			
+		
+		{% for t in todas %}
+
+		 {% if forloop.counter|divisibleby:"4" %}
+			<li class='clientes ultimo'>
+		{% else %}
+			<li class='clientes'>
+		{% endif %}
+				<img src="{% static t.logo %}">
+				<div class="descripcion">
+				 <h3 class="encabezado top-none">{{t.nombre}}</h3>	
+				 {% for d in dominios %}
+				 	{% if d.id == t.site_id %}
+						<a href="http://{{d.domain}}" title="{{d.name}}" target='blank'>
+							<div class="ver boton">Ver tienda <label class="icon-point-right"></label></div> 
+						</a>
+					{% endif %}
+				{% endfor %}
+				</div>
+				
+			</li>
+		{% endfor %}
+		</center>
+	</ul>
+
+		
+	
+ 
+
+{% endblock %}

@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Yopi</title>
+
+	{% load static from staticfiles %}
+	<link rel="stylesheet" type="text/css" href="{% static "vendors/css/bootstrap.min.css" %}">
+	<link rel="stylesheet" type="text/css" href="{% static "vendors/css/bootstrap-theme.min.css" %}">
+	<link rel="stylesheet" type="text/css" href="{% static "yopi/css/style.css" %}">
+
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+	<script src="{% static "vendors/js/bootstrap.min.js" %}"></script>
+	<link href='http://fonts.googleapis.com/css?family=Righteous|Amaranth' rel='stylesheet' type='text/css'>
+
+
+
+
+</head>
+<body>
+	
+	<div id="container">
+
+		<div id='header' class="navbar navbar-default ">
+			<header>
+
+				<nav class='nav nav-pills'>
+					<ul class='list-none'>
+						<li id='logo'>
+							<a href="" title="">
+
+								<img src="{% static "yopi/logoyopi.png"%}" width='100'>
+								Yopi
+							</a>
+						</li>
+
+						<!--<li>
+
+							<a href="" title="">
+
+								<img src="{% static "yopi/avatar.jpg"%}" width='70' class='imgRedonda'>
+								Jesús cervantes
+
+							</a>
+						</li>
+
+						<li class='noti'>
+							 <span class="glyphicon-class"></span>
+							 In
+
+						</li>
+
+						<li class='noti'>
+							Out
+						</li>-->
+						<li>
+
+							<button type="button" class="btn btn-primary">Quiero Regalar</button>
+						</li>
+					</ul>
+				</nav>
+				
+			</header>
+			
+		</div>
+
+		<div id="contentContainer" class='row'>
+
+
+			<div id="imageContainer">
+
+
+
+			</div>
+
+			<section id="users" class='color-azul'>
+				<h3>Usuarios más Recientes</h3>
+				<ul class="list-none" id='usersList'>
+					<li>
+
+						<a href="" title="">
+
+							<img src="{% static "yopi/avatar.jpg"%}" width='50' class='imgRedonda'>
+
+						</a>
+
+					</li>
+					<li>
+
+						<a href="" title="">
+
+							<img src="{% static "yopi/avatar.jpg"%}" width='50' class='imgRedonda'>
+
+						</a>
+						
+					</li>
+					<li>
+
+						<a href="" title="">
+
+							<img src="{% static "yopi/avatar.jpg"%}" width='50' class='imgRedonda'>
+
+						</a>
+						
+					</li>
+					<li>
+
+						<a href="" title="">
+
+							<img src="{% static "yopi/avatar.jpg"%}" width='50' class='imgRedonda'>
+
+						</a>
+						
+					</li>
+					<li>
+
+						<a href="" title="">
+
+							<img src="{% static "yopi/avatar.jpg"%}" width='50' class='imgRedonda'>
+
+						</a>
+						
+					</li>
+					<li>
+
+						<a href="" title="">
+
+							<img src="{% static "yopi/avatar.jpg"%}" width='50' class='imgRedonda'>
+
+						</a>
+						
+					</li>
+					<li>
+
+						<a href="" title="">
+
+							<img src="{% static "yopi/avatar.jpg"%}" width='50' class='imgRedonda'>
+
+						</a>
+						
+					</li>
+
+				</ul>
+
+			</section>
+			
+			<br>
+			<section id="contentCategories" class='color-azul'>
+
+				<h2>Me gustaría regalar</h2>
+				<a href="" title="">
+					<figure>
+
+							<img src="{% static "yopi/2.jpg"%}" width='50' class='imgRedonda'>
+						<figcaption class='color-negro'>Un Rico Cafe</figcaption>
+						
+					</figure>
+				</a>
+				<a href="" title="" class='medio'>
+					<figure>
+
+							<img src="{% static "yopi/1.jpg"%}" width='50' class='imgRedonda'>
+						<figcaption class='color-negro'>Un Delicioso Pastel</figcaption>
+						
+					</figure>
+				</a>
+
+				<a href="" title="">
+					<figure>
+
+							<img src="{% static "yopi/3.jpg"%}" width='50' class='imgRedonda'>
+						<figcaption class='color-negro'>Lindas Flores</figcaption>
+						
+					</figure>
+				</a>
+
+
+			</section>
+
+
+
+
+
+		</div>
+
+
+		<footer class='footer'>
+
+			Regalos originales para todos&nbsp;&nbsp;&nbsp;&nbsp;
+			<small>Yopi 2014 Todos los derechos reservados</small>
+		
+		</footer>
+
+
+	</div>
+
+
+
+
+</body>
+</html>

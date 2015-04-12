@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Yopi app Regalos</title>
+
+	<link href='http://fonts.googleapis.com/css?family=Righteous|Amaranth' rel='stylesheet' type='text/css'>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="Regalos para todos">
+
+	{% load static from staticfiles %}
+	<link rel="stylesheet" type="text/css" href="{% static "css/yopi/yopi.css" %}">
+	<link rel="stylesheet" type="text/css" href="{% static "css/yopi.css" %}">
+	<link rel="stylesheet" type="text/css" href="{% static "css/icons.css" %}">
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+
+
+
+
+</head>
+<body>
+
+
+<div id="content">
+
+	
+	<header>
+
+		<div class='izquierdo'>
+			<img src="{% static "imagenes/logoyopi.png" %}" alt="" id='logo'>
+		</div>
+		
+		<DIV class="derecho">
+			
+
+			<h1 class='naranja bottom-none'>YOPi</h1>
+			<h2 class='naranja top-none'>Regalos originales para todas las personas</h2>
+
+			<button id='buy'data-type='0'> <span class="icon-gift"></span> Quiero Regalar</button>
+			<button id='shop'data-type='1'><span class="icon-tag"></span> Quiero Vender </button>
+
+
+		</DIV>
+
+		<div id="usuarios">
+			<center>
+				<h3 id='lugar' class='naranja'> </h3>
+				<ul>
+
+					{% for user in usuarios %}
+						
+
+						<li>
+							<img src="{{user.Avatar}}" alt="{{user.Nombre}}" title='{{user.Nombre}}'>
+						</li>
+						
+
+					{% endfor %}
+					
+				
+				</ul>
+
+			</center>
+			
+
+		</div>
+
+	</header>
+	<div id='clientes' title='Quiero Regalar' class='dialogos'>
+		<div class="info">
+			
+		</div>
+
+		<button class='fb' >
+			
+			Registrate con <span class="icon-facebook"></span> 
+
+		</button>
+
+	</div>
+	<div id="vendedores" title='Quiero Vender' class='dialogos'>
+
+		<div class="info">
+			
+		</div>
+
+		<button class='fb'>
+			
+			Registrate con <span class="icon-facebook"></span> 
+			
+		</button>
+		
+	</div>
+
+
+	
+</div>
+	
+
+
+	<form id='ghost'>
+		
+		{% csrf_token %}
+	</form>
+
+
+<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=true"></script>
+<script src="{% static "js/yopi/localizacion.js" %}"></script>
+<script src="{% static "js/yopi/yopi.js" %}"></script>
+<script src="https://connect.facebook.net/en_US/all.js"></script>
+<script src="{% static "js/yopi/fbLogin.js" %}"></script>
+
+
+
+</body>
+</html>

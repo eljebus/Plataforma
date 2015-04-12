@@ -1,0 +1,63 @@
+header{
+	width: 80%;
+	margin: auto;
+margin-left: 17%;
+
+
+}
+#contenedor {margin-left: 17%; } 
+
+#editor {
+	width: 15%; 
+	height: auto;
+	display: inline-block;
+	vertical-align: top; 
+	position: absolute; 
+	overflow: hidden; 
+	z-index: 1000; 
+	left: 1em; 
+} 
+#editor input {
+	padding:5px; 
+	border:none; 
+	border:solid 1px #a5a5a5; 
+	width: 96%;
+	box-sizing:border-box;
+} 
+
+#editor input:focus {
+	box-shadow:0 0 15px #036; 
+	} 
+#editor ul {list-style: none; } 
+
+#editor ul #primero {margin-top: 0px; } 
+
+#editor ul li {
+	font-size: 15px; 
+	width: 100%; 
+	margin-top: 10px; 
+	background-color: white;
+	padding: 15px; 
+	height: auto; 
+	box-sizing:border-box; 
+	text-align: left; 
+	color: black; 
+	font-weight: bold; 
+} 
+
+#slider{margin-bottom: 2em; } 
+
+#contenido {width: 79.3%; height: auto; display: inline-block; } 
+.precio{
+	text-align: center;
+}
+.numeros {color: #1e8bc3; font-size: 1.5em; } 
+.selectores{position: relative; margin-bottom: 10px; overflow: hidden; height: 30px;padding: 5px; } 
+.selectores input{position: absolute; top:0; left: 0; z-index: 2; } 
+.selectores input[type='color'] {z-index: 20; width: 100%; opacity: 0; } 
+.selectores input[type='file'] {z-index: 20; width: 100%; opacity: 0; }
+#contenedor_menu {position: fixed; width: 20%; margin-top: 20px; z-index: 9999; } 
+#sidebar {width: 100%; float: left; background:#fff; padding: 5px; } 
+.boton-editor {padding: 10px; font-size: 1em; margin-top:2px; font-weight: bold; color:white; } 
+.boton-editor:hover {cursor: pointer; background: #ff9f00 ; } 
+.iconosp {font-size: 1em }

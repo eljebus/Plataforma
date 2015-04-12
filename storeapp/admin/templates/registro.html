@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<style type="text/css">
+	
+	#registro
+	{
+		width: 300px;
+		border:solid 1px;
+		margin:auto;
+	}
+	#registro label,#registro input
+	{
+		display: inline-block;
+
+	}
+	#registro label
+	{
+		width: 20%;
+	}
+	#registro input
+	{
+		padding: 5px;
+		width: 73%
+	}
+	#registro input[type='submit']
+	{
+		width: 50%;
+		margin-left: 40%;
+	}
+
+</style>
+<head>
+	<meta charset="utf-8" />
+	<title></title>
+</head>
+<body>
+		<form method="post" id='registro' enctype="multipart/form-data">
+	    <div id="form">
+	        {% csrf_token %}
+		    {{form.as_p}}
+		    <input type="submit">
+		<form>
+		</div>
+
+		<h1>{{mensaje}}</h1>
+
+</body>
+</html>

@@ -1,0 +1,249 @@
+
+
+
+{% extends "plantilla1/template.html" %}
+    
+    {% block estilos %}
+    {% load static from staticfiles %}
+     
+   
+      <link rel="stylesheet" href="{% static "css/tema.min.css" %}" />
+      <link rel="stylesheet" type="text/css" href="{% static "css/flat/flaticons.css" %}">
+      <link rel="stylesheet" type="text/css" href="{% static "css/tiendas/plantilla1/panel.css" %}">
+
+    {% endblock %}
+
+
+
+    {% block content %}
+
+    <h2><label class='icon-users'></label>&nbsp;
+            &nbsp;{{titulo}}</h2>
+
+  
+
+   <section id='todo'>
+    <section id='datos'>
+      <label class="icon-mail"></label> Mail: {{cliente.mail}}
+      &nbsp;&nbsp;&nbsp;&nbsp;
+      <a href="/SalirUser/" class='color-rojo sesion' >
+        <label class="icon-exit"></label> Salir
+      </a>
+      <br><br>
+      <label class="flaticon-send5"></label> Direccion: {{cliente.domicilio}} {{cliente.estado}} {{cliente.cp}}
+       <br><br>
+      <a href="/Clave/" class='color-azul' title="Nueva Clave">
+        <label class="icon-user"></label> Solicitar nueva Clave
+      </a>
+    </section>
+
+   <div id='detalle-pedido'>
+    <h4>Mis Pedidos</h4>
+   <div id='contenedor-pedidos'>
+
+  
+     <table    class="cabecera"  cellspacing="0">
+
+              <tbody>
+
+              
+                <tr id="cabecera" >
+                  <td width='90' align='center'>Codigo</td>
+
+                  
+                  <td  align='center'>Fecha</td>
+                 
+                  <td  align='center'>Status</td>
+                
+
+                </tr>
+
+                
+               </tbody>
+
+      </table>
+     <div class="contenedor">
+      <table class="tabla"    cellspacing="0" >
+
+              <tbody>
+                {% for p in pedidos %}
+                <tr class="codigo" data-valor="{{p.idpedidos}}" >
+                  <td  width='90'>{{p.idpedidos}}</td>
+                  <td >{{p.fecha}}</td>
+                  {%  if p.status == 'Pendiente' %}
+                    <td class='color-naranja'>{{p.status}}</td>
+                  {% else %}
+                    <td class='color-verde'>{{p.status}}</td>
+                  {% endif %}
+                  {% empty %}
+                  <td colspan='3'> Aún no has realizado Pedidos</td>
+                  
+                </tr>
+                {% endfor %}
+            
+              </tbody>
+
+      </table>
+    </div>
+
+    
+   </div>
+
+     
+
+
+   <div id= 'contenedor-envios'>
+     <h3>Selecciona algun envio</h3>
+   
+   </div>
+
+  </div>
+    
+  
+
+  <div id='contenedor-productos'>
+      <table  class="cabecera" cellspacing="0" >
+
+       <tbody>
+
+                  
+         <tr >
+          <td width='40%'>Producto</td>
+                      
+          <td width='15%'>Cantidad</td>
+
+          <td width='15%'>Precio Unitario</td>
+                     
+          <td >Total:</td>
+                    
+
+         </tr>
+                    
+         </tbody>
+
+        </table>
+
+        <div class="contenedor">
+
+         <table class="tabla"    cellspacing="0" >
+
+              <tbody id='productosPedido'>
+            
+              </tbody>
+
+         </table>
+      </div>
+
+
+       </div>
+
+        
+        </section>
+
+    
+       
+  
+  {% endblock %}
+
+  {% block scripts %}
+ 
+  
+  <script>
+
+      var bandera=false;
+        $(document).on('ready', iniciar);
+
+        function iniciar(){
+          $('.codigo').on('click',getData);
+
+          $(document).on('click','.deletep',borrar);
+        }
+
+        function borrar(){
+          dato=$(this).data('pedido');
+          console.log(dato);
+
+          $.ajax({
+                    url: '/borrarPedido/',
+                    type: 'POST',
+                    dataType: "json",
+                    data:'idpedido='+dato,
+                    success:function(data){
+
+                      console.log(data);
+                        if(data.Error === 'true')
+                              $('#error').html('oops ocorrio un error<label class="icon-sad"></label>');
+                        
+                        else{
+                          window.location.reload(); 
+                           
+                        }
+                           
+                                                       
+                    }
+                  });
+        }
+
+
+
+        function getData(){
+          
+          var dato = $(this).attr("data-valor");
+
+          $('#contenedor-envios').html('<center><img src="/static/imagenes/ajax.gif"><br>Buscando datos</center>');
+          $.ajax({
+                    url: '/getData/',
+                    type: 'POST',
+                    dataType: "json",
+                    data:'idpedido='+dato,
+                    success:function(data){
+                        if(data.Error==true)
+                              $('#error').html('oops ocorrio un error<label class="icon-sad"></label>');
+                        
+                        else{
+                            pago='';
+                            if (data.status==='Pendiente'){
+                               pago='<br><br> <a href="/Cargo/"><div class="boton inline" id="recibo" data-id="'+dato+'">Pagar Ahora <label class="icon-arrow-right inline"></label></div></a>';
+                            }
+
+                           $('#contenedor-envios').html('<label class="encabezado">Datos Pedido '+dato+'</label> <br> <br> <label class="datos">Forma de pago: </label> <label class="pequena" >'+data.metodoPago+'</label>'+pago+'<br> <br> <label class="icon-map"></label><label class="datos"> Dirección:</label> <label class="pequena" >'+data.direccion+'</label> <br> <br> <label class="flaticon-send5"></label><label class="datos"> Metodo de envio: </label> <label class="pequena" >'+data.metodoEnvio+'</label> <br> <br> <label class="datos">Total:</label><label class="pequena" >$'+data.importe+'</label> <label class="color-rojo derecha underline deletep" data-pedido="'+dato+'"><small>Cancelar pedido</small> </label>');
+
+                           render='';
+                           productos=JSON.parse(data.productos);
+                          for (p in productos){
+                            productosCarrito=productos[p];
+                            console.log(productosCarrito);
+                            producto=productosCarrito['producto'];
+                            modelo=productosCarrito['modelo'];
+                            precioModelo=productosCarrito['precioModelo'];
+                            precioProducto=productosCarrito['precioProducto'];
+                            cantidad=productosCarrito['cantidad'];
+                            
+                              render+='<tr>';
+                              render+='<td width="40%">'+producto+'<br>'+modelo+'($'+precioModelo+')</td>';
+                              render+='<td width="15%">'+cantidad+'</td>';
+                                    
+                              render+='<td width="15%">$'+precioProducto+'</td>';
+                              render+='<td>$ '+(parseFloat(precioProducto)+parseFloat(precioModelo))*parseFloat(cantidad)+'</td>';
+                              render+='</tr>';
+                          }
+                          $('#productosPedido').html(render);
+
+                        }
+                           
+                                                       
+                    }
+                  });
+      
+        }
+
+
+
+
+
+
+
+
+  </script>
+
+  {% endblock %}

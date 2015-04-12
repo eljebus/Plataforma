@@ -1,0 +1,63 @@
+ 
+<div id='content-header'>
+  
+
+ <header >
+
+        {% load static from staticfiles %}
+         <div id='logo' class='inline abajo'>
+            <img src="{% static logo %}">
+         </div>
+
+          
+         
+
+         
+
+
+         <div id='busqueda' class='inline abajo'>
+              <form action="/Busqueda/" method="POST" accept-charset="utf-8">
+                {% csrf_token %}
+                <input name="busqueda" placeholder="Busqueda"  type="search" required>
+              </form>
+         </div>
+
+         
+
+     <nav>
+       <ul class='list-none' id="menu">
+          <a href="/">
+              <li >
+                  <label class='icon-home'></label>
+                  Inicio
+              </li>
+          </a>
+            <li id='catNormal'>
+               Categorias
+                  <ul class='submenu'>
+                  {% for c in categorias %}
+                    <a href="/Categorias/{{c.nombre|slugify}}/" title="{{c.nombre}}">
+                      <li>{{c.nombre}} </li>
+                    </a>
+                  {% endfor %}
+                  </ul>
+            </li>
+             <li id='catMobile'>
+              Categorias
+            </li>
+            <li id="cuenta">
+                 Mi Cuenta
+            </li>
+            <a href="/Contacto/" title="Contácto">
+              <li id="contacto">
+                   Contácto
+              </li> 
+            </a>
+            
+            <li  id='carrito'>
+                <label class='icon-cart'></label> Carrito de compras (<label id='items'>{{cesta}}</label>) Productos
+            </li> 
+       </ul>
+   </nav>
+   </header> 
+</div>

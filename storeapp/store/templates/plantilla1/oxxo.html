@@ -1,0 +1,17 @@
+<html>
+<body>
+
+<div style="pd4ml-display:none">
+@navbar@
+<form name="CreatePDF" action="" method="POST">
+    <input type="hidden" id="PDFcontent" name="txt" value="" style="width:0px; display:none"/>
+    <input type=submit class="Button" value="Create PDF" onclick="this.form.txt.value=document.getElementsByTagName('HTML')[0].outerHTML;">
+</form>
+</div>
+
+<table>
+@rows@
+</table>
+
+</body>
+</html>

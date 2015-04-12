@@ -1,0 +1,136 @@
+# This is an auto-generated Django model module.
+# You'll have to do the following manually to clean this up:
+#     * Rearrange models' order
+#     * Make sure each model has one field with primary_key=True
+# Feel free to rename the models, but don't rename db_table values or field names.
+#
+# Also note: You'll have to insert the output of 'django-admin.py sqlcustom [appname]'
+# into your database.
+
+from django.db import models
+
+class Cms(models.Model):
+    idcms = models.IntegerField(primary_key=True, db_column='idCms') # Field name made lowercase.
+    nombre = models.CharField(max_length=135, db_column='Nombre', blank=True) # Field name made lowercase.
+    descripcion = models.CharField(max_length=450, db_column='Descripcion', blank=True) # Field name made lowercase.
+    imagen = models.CharField(max_length=135, db_column='Imagen', blank=True) # Field name made lowercase.
+    activo = models.IntegerField(null=True, db_column='Activo', blank=True) # Field name made lowercase.
+    class Meta:
+        db_table = u'cms'
+
+
+
+class Conjunto(models.Model):
+    idconjunto = models.IntegerField(primary_key=True, db_column='idConjunto') # Field name made lowercase.
+    tienda = models.IntegerField(db_column='Tienda') # Field name made lowercase.
+    fecha = models.DateField(null=True, blank=True)
+    activo = models.IntegerField(null=True, db_column='Activo', blank=True) # Field name made lowercase.
+    cms = models.ForeignKey(Cms, db_column='Cms') # Field name made lowercase.
+    class Meta:
+        db_table = u'conjunto'
+
+
+class Secciones(models.Model):
+    idsecciones = models.IntegerField(primary_key=True, db_column='idSecciones') # Field name made lowercase.
+    nombre = models.CharField(max_length=135, db_column='Nombre') # Field name made lowercase.
+    titulo = models.CharField(max_length=135, db_column='Titulo') # Field name made lowercase.
+    contenido = models.CharField(max_length=750)
+    activo = models.IntegerField(null=True, db_column='Activo', blank=True) # Field name made lowercase.
+    conjunto = models.ForeignKey(Conjunto, db_column='Conjunto') # Field name made lowercase.
+    class Meta:
+        db_table = u'secciones'
+
+class Subsecciones(models.Model):
+    idsubsecciones = models.IntegerField(primary_key=True)
+    nombre = models.CharField(max_length=135, db_column='Nombre', blank=True) # Field name made lowercase.
+    titulo = models.CharField(max_length=135, db_column='Titulo', blank=True) # Field name made lowercase.
+    contenido = models.TextField(db_column='Contenido', blank=True) # Field name made lowercase.
+    secciones = models.ForeignKey(Secciones, db_column='Secciones') # Field name made lowercase.
+    class Meta:
+        db_table = u'subsecciones'
+
+class Imagenes(models.Model):
+    idimagenes = models.IntegerField(primary_key=True, db_column='idImagenes') # Field name made lowercase.
+    nombre = models.CharField(max_length=135, db_column='Nombre', blank=True) # Field name made lowercase.
+    archivo = models.CharField(max_length=450, db_column='Archivo', blank=True) # Field name made lowercase.
+    tipo = models.CharField(max_length=135, db_column='Tipo', blank=True) # Field name made lowercase.
+    activo = models.IntegerField(null=True, db_column='Activo', blank=True) # Field name made lowercase.
+    class Meta:
+        db_table = u'imagenes'
+
+class Galeria(models.Model):
+    idgaleria = models.IntegerField(primary_key=True, db_column='idGaleria') # Field name made lowercase.
+    nombre = models.CharField(max_length=135, db_column='Nombre', blank=True) # Field name made lowercase.
+    activo = models.IntegerField(null=True, db_column='Activo', blank=True) # Field name made lowercase.
+    subsecciones = models.ForeignKey(Subsecciones, db_column='subsecciones')
+    class Meta:
+        db_table = u'galeria'
+
+class GaleriaImagenes(models.Model):
+    galeria = models.ForeignKey(Galeria, db_column='Galeria') # Field name made lowercase.
+    imagenes = models.ForeignKey(Imagenes, db_column='Imagenes') # Field name made lowercase.
+    activo = models.IntegerField(null=True, db_column='Activo', blank=True) # Field name made lowercase.
+    class Meta:
+        db_table = u'galeria_imagenes'
+
+
+class Plugin(models.Model):
+    idplugin = models.IntegerField(primary_key=True, db_column='idPlugIn') # Field name made lowercase.
+    nombre = models.CharField(max_length=135, db_column='Nombre', blank=True) # Field name made lowercase.
+    tipo = models.CharField(max_length=135, db_column='Tipo', blank=True) # Field name made lowercase.
+    archivo = models.CharField(max_length=135, db_column='Archivo', blank=True) # Field name made lowercase.
+    class Meta:
+        db_table = u'plugin'
+
+class SubseccionesPlugin(models.Model):
+    subsecciones = models.ForeignKey(Subsecciones, db_column='subsecciones')
+    plugin = models.ForeignKey(Plugin, db_column='PlugIn') # Field name made lowercase.
+    class Meta:
+        db_table = u'subsecciones_plugin'
+
+class Propiedes(models.Model):
+    idpropiedes = models.IntegerField(primary_key=True, db_column='idPropiedes') # Field name made lowercase.
+    nombre = models.CharField(max_length=135, db_column='Nombre', blank=True) # Field name made lowercase.
+    tipo = models.CharField(max_length=750, db_column='Tipo', blank=True) # Field name made lowercase.
+    valor = models.CharField(max_length=750, db_column='Valor', blank=True) # Field name made lowercase.
+    activo = models.IntegerField(null=True, db_column='Activo', blank=True) # Field name made lowercase.
+    class Meta:
+        db_table = u'propiedes'
+
+class Elementos(models.Model):
+    idelementos = models.IntegerField(primary_key=True, db_column='idElementos') # Field name made lowercase.
+    nombre = models.CharField(max_length=135, db_column='Nombre', blank=True) # Field name made lowercase.
+    contenido = models.CharField(max_length=750, db_column='Contenido', blank=True) # Field name made lowercase.
+    activo = models.IntegerField(null=True, db_column='Activo', blank=True) # Field name made lowercase.
+    class Meta:
+        db_table = u'elementos'
+
+class ElementosSubsecciones(models.Model):
+    elementos = models.ForeignKey(Elementos, db_column='Elementos') # Field name made lowercase.
+    subsecciones = models.ForeignKey(Subsecciones, db_column='subsecciones')
+    activo = models.IntegerField(null=True, db_column='Activo', blank=True) # Field name made lowercase.
+    class Meta:
+        db_table = u'elementos_subsecciones'
+
+
+#----------------------
+
+class ElementosPropiedes(models.Model):
+    elementos = models.ForeignKey(Elementos, db_column='Elementos') # Field name made lowercase.
+    propiedes = models.ForeignKey(Propiedes, db_column='Propiedes') # Field name made lowercase.
+    class Meta:
+        db_table = u'elementos_propiedes'
+
+
+class Estilo(models.Model):
+    idestilo = models.IntegerField(primary_key=True, db_column='idEstilo') # Field name made lowercase.
+    tipo = models.CharField(max_length=135, db_column='Tipo', blank=True) # Field name made lowercase.
+    valor = models.CharField(max_length=135, db_column='Valor', blank=True) # Field name made lowercase.
+    class Meta:
+        db_table = u'estilo'
+
+class EstiloElementos(models.Model):
+    estilo = models.ForeignKey(Estilo, db_column='Estilo') # Field name made lowercase.
+    elementos = models.ForeignKey(Elementos, db_column='Elementos') # Field name made lowercase.
+    class Meta:
+        db_table = u'estilo_elementos'

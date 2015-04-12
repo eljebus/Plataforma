@@ -1,0 +1,172 @@
+
+
+
+{% extends "plantilla1/template.html" %}
+    
+    {% block estilos %}
+       {% load static from staticfiles %}
+      <link rel="stylesheet" type="text/css" href="{% static "css/tiendas/plantilla1/index.css" %}">
+      <link rel="stylesheet" href="{% static "css/tema.min.css" %}" />
+      <link rel="stylesheet" href="{% static "css/tiendas/plantilla1/carrito.css" %}" />
+    {% endblock %}
+
+    {% block content %}
+      
+      <section id='contenedor-tabla'>
+          {% if letrero %}
+          <p class='listo bgcolor-rojo ' style='text-align:center'>
+            <label class='icon-sad'> </label>{{letrero}}
+          </p>
+          {% endif %}
+          <form action="/Procesar/" method="POST" id='carrito-form' >
+            {% csrf_token %}
+            <table id="pedidos" cellspacing="0">
+
+            <tbody>
+
+            <tr id="cabecera" height="20">
+              <td >Producto</td>
+              <td class='ocultarMobile'></td>
+              <td class='ocultarMobile'width='100'>Cantidad</td>
+              <td class='ocultar' width='100'>Precio Unitario</td>
+              <td width='100'>Total</td>
+              <td width='100'>Eliminar</td>
+       
+            </tr>
+            {% for key,value in productos.items %}
+                
+              <tr >
+                   {% for keys,values in value.items %}
+                    
+                        
+                      {% if keys == 'imagen'%}
+                          <td width='80' class='ocultarMobile'>
+                            <img src="{% static values %}" class='inline'>
+                          </td>
+                        {% endif %} 
+
+                      {% endfor %}
+                
+                  <td >
+                   
+                     {% for keys,values in value.items %}
+                      {% if keys == 'nombre'%}
+                          
+                          <label>{{values}}</label><br>
+                        {% endif %} 
+
+                      {% endfor %}
+                      {% for keys,values in value.items %}
+                      {% if keys == 'modelo' %}
+                      
+                          <label>{{values}}</label>
+                      {% elif keys == 'precioModelo' %}
+                         {% load humanize %}
+
+                          <small>($ {{values|floatformat:2|intcomma}})</small>
+                      
+                        {% endif %} 
+
+                      {% endfor %}
+                  
+                  </td>
+                  {% for keys,values in value.items %}
+               
+                    {% if keys == 'cantidad'%}
+                      <td class='ocultarMobile'>{{values}}</td>
+                    {% elif keys == 'importe' or keys == 'precioUnitario' %}
+                      {% load humanize %}
+                      {% if keys == 'importe' %}
+                        <td  class='precioItem'>$ {{values|floatformat:2|intcomma}}</td>
+                      {% else %}
+                          <td class='ocultar'>$ {{values|floatformat:2|intcomma}}</td>
+
+                      {% endif %} 
+                    {% endif %} 
+
+                  {% endfor %}
+
+                   {% for keys,values in value.items %}
+                      {% if keys == 'idmodelo'%}
+                          
+                           <td ><span class='icon-happy iconos color-verde delete' data-id='{{values}}'></span></td>
+                        {% endif %} 
+
+                      {% endfor %}
+                
+
+                {% endfor %}
+                
+               
+             
+                
+              </tr>
+             </tbody>
+
+            </table>
+
+  
+            
+          
+        </section>
+
+        <section id='pedido'>
+
+          <textarea  placeholder='Comentarios del pedido' name='comentario'></textarea>
+
+        <div id="totales">
+          <label class="costo" >Total:</label> <label class="costo" id="precio">
+             {% load humanize %}
+               $ {{total|floatformat:2|intcomma}}
+           </label>
+
+
+          <input  id='comprar' type="submit"  class='boton' value="Procesar Pedido">
+
+          <p id='nota'>
+          <label>Nota:</label><br>
+          
+            Precios y disponibilidades sujetas a cambio.<br>
+            Recuerda que puedes revisar tu orden antes de terminar la compra. El costo de tu orden puede variar según el lugar de envío o recargos adicionales de impuestos o empaques.
+            <br>
+            Mind On Cloud no se responsabiliza por el manejo, envío y distribución de los productos contenidos en esta tienda.<br>
+            Cada tienda es manejada directamente por su propietario.
+          </p>
+        </div>
+       </form>
+         
+        </section>
+
+
+    
+   
+  
+  {% endblock %}
+
+  {% block scripts %}
+
+  <script type="text/javascript">
+        $(document).on('ready',iniciar);
+        function iniciar(){
+          if(sesion == false){
+                
+                $('textarea').attr('placeholder','Inica sesion para poder indicar comentarios');
+                $('textarea').attr("disabled", "disabled");
+                $('#comprar').attr('value','Ingresa para continuar');
+
+              }
+          $('#comprar').on('click',function(e){
+              e.preventDefault();
+              if(sesion == false)
+                $('#sesion').dialog('open');
+              else
+                $('#carrito-form').submit()
+
+
+          });
+        }
+
+     </script>
+  
+
+  {% endblock %}

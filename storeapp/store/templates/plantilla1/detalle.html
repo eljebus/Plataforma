@@ -1,0 +1,173 @@
+{% extends "plantilla1/template.html" %}
+    
+    {% block estilos %}
+    
+ 
+      {% load static from staticfiles %}
+      <link rel="stylesheet" type="text/css" href="{% static "css/tiendas/plantilla1/style.css" %}">
+      <link rel="stylesheet" href="{% static "css/tema.min.css" %}" />
+      <link rel="stylesheet" type="text/css" href="{% static "css/tiendas/plantilla1/detalle.css" %}">
+
+    
+    {% endblock %}
+
+    {% block content %}
+
+     <div id='titulo'>
+        <h2 class='top-none' >
+          {{producto.nombre}}
+         </h2>
+     </div>
+     
+         
+        <div id='content-product' class='inline top'>
+          <section class="division">
+        
+             <div id="imagen">
+
+                <center>
+                  <figure>
+                    
+                    <img src="{% static producto.archivo %}" alt="{{producto.nombre}}" title='{{producto.nombre}}' rel="image_src">
+                    
+                  </figure>
+                  
+                </center>
+             </div>
+
+             <div id='content'>
+                <center>
+                {% for i in imagenes %}
+                  <div class="cuadro">
+                       <img src="{% static i.archivo %}  " title="{{i.nombre}}">
+                  </div>
+          
+                {% endfor %}
+              </center>
+             </div>
+
+           
+          </section>
+
+
+        <form id='formulario' method='POST'>
+        
+        {% csrf_token %}
+         <section class="division" id='centro'>
+
+            
+          
+             <label class="etiqueta"> 
+               {% load humanize %}
+              $ {{producto.precio|floatformat:2|intcomma}} 
+              &nbsp;&nbsp;&nbsp;&nbsp;
+          <small>(Stock: <label id="stock">{{stock}}</label>)</small></label>
+             <hr>
+
+             <label>Modelos</label>
+           
+            
+             <br><br>
+             <ul class="list-none" id='modelos'>
+
+              {% for m in modelos%}
+               <li>
+                  <input id="m{{m.idmodelos}}"  type="radio" data-nombre='{{m.nombre}}' required value='{{producto.idproductos}}:{{m.idmodelos}}' name='modelo' class='modeloItem'/>
+                  {% if m.precio != 0 %}
+                  <label for="m{{m.idmodelos}}" >{{m.nombre}} <small> (${{m.precio}} extra / Stock: <span class='stock'>{{m.stock}}</span> )</small></label>
+                  {% else %}
+                  <label for="m{{m.idmodelos}}"  >{{m.nombre}} <small>(Stock: <span class='stock'>{{m.stock}}</span>)</small></label>
+                  {% endif %}
+               </li>
+               {% empty %}
+                  <li>Único Modelo</li>
+              {% endfor %}
+            
+
+             </ul>
+          
+             <hr>
+
+
+             <div id='div-comprar' >
+               <label class='inline' id='cantidad'>Cantidad</label>
+              <input type=number min="1" name='cantidad' class='inline' value='1' id='numero' min='1' required>
+                
+              <input type='submit' id='comprar' class='inline top-none bottom-none bgcolor-azul boton' data-id='{{modeloProducto}}' data-nombre='{{producto.nombre}}' value='Añadir al Carrito'>
+             </button>
+
+             </div>
+             <hr>
+              <a href="#" 
+                onclick="
+                  window.open(
+                    'https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent(location.href), 
+                    'facebook-share-dialog', 
+                    'width=626,height=436'); 
+                  return false;">
+               <label id='compartir' class='bgcolor-azul'><label class="icon-facebook"></label> Compartir</label>
+              </a>
+            
+
+              
+          </section>
+          </form>
+          
+          <article id='descripcion'>
+            <p class='top-none bgcolor-gris' id='detalles'>Detalles</p>
+                 {{producto.descripcion|safe}}
+          </article>
+          
+        </div>
+      
+
+
+         <section class="division" id='final'>
+
+
+            <label class="etiqueta">Similares</label>
+            <hr>
+
+            {% for h in productos%}
+
+              <figure class='productos' >
+              
+                  <center>
+                    <img src="{% static h.archivo %}">
+                  </center>
+                  
+
+                  <figcaption>
+                    <p class='nombre top-none bottom-none'> {{h.nombre}}</p>
+                    <div class='precio'>
+                       $ {{h.precio|floatformat:2|intcomma}}
+                     </div>
+                     <a href="/ProductosTienda/{{h.idproductos}}/" title="Agregar {{h.nombre}}">
+                       <div class='carrito boton'>
+                        
+                          
+                          Más Detalles
+                        <label class='icon-point-right'></label>
+                       </div> 
+                     </a>
+                   </figcaption>
+ 
+                </figure>
+
+            {% endfor %}
+
+           
+         </section>
+
+
+      
+      <div id="aviso" title="Producto Agregado">
+          <p><center><label class='icon-happy color-verde iconos inline medio'></label></center> <br>Producto <span id='nameItem'></span> agregado con éxito.</p>
+        </div>
+    {% endblock %}
+{% block scripts %}
+
+   <script src="{% static "js/tiendas/plantilla1/detalle.js" %}" ></script>
+
+
+{% endblock %}

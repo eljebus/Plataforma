@@ -1,0 +1,25 @@
+
+
+
+{% extends "plantilla1/template.html" %}
+    
+    {% block estilos %}
+    
+    {% load static from staticfiles %}
+    <link rel="stylesheet" type="text/css" href="{% static "css/tiendas/slider/idangerous.swiper.css" %}">
+    <link rel="stylesheet" href="{% static "css/tema.min.css" %}" />
+    {% endblock %}
+
+    {% block content %}
+
+     <h1> Te enviamos un correo con tu nueva Clave</h1>
+       
+  
+  {% endblock %}
+
+  {% block scripts %}
+
+  
+
+
+  {% endblock %}

@@ -1,0 +1,32 @@
+ {% extends "adminTemplate.html" %}
+
+  {% block estilos %}
+    {% load static from staticfiles %}
+    <link rel="stylesheet" href="{% static "css/panel/productosAdd.css" %}" />
+    <link rel="stylesheet" href="{% static "css/editor.css" %}" />
+    <link rel="stylesheet" type="text/css" href="{% static "css/tema.min.css" %}">
+    <link rel="stylesheet" type="text/css" href="{% static "css/panel/prox.css" %}">
+
+  {% endblock %}
+
+	{% block content %}
+	
+ 	<h1>Proximamente</h1>
+
+
+    <h2 id='letras'> Estamos trabajando en esta sección</h2>
+    <br>
+
+    <div id='icono'>
+      <LABEL class='flaticon-working1' style='font-size:6em' ></LABEL>
+    </div>
+    
+
+
+    {% endblock %}
+
+    {% block scripts %}
+
+    
+
+	{% endblock %}

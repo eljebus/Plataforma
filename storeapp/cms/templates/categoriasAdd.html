@@ -1,0 +1,36 @@
+ {% extends "adminTemplate.html" %}
+
+  {% block estilos %}
+    {% load static from staticfiles %}
+     <link rel="stylesheet" href="{% static "css/panel/productosAdd.css" %}" />
+     <link rel="stylesheet" href="{% static "css/editor.css" %}" />
+  {% endblock %}
+
+	{% block content %}
+  <p class='listo {{color}}' style='display:{{ver}}'>
+    <label class='{{icono}}'> </label>{{letrero}}
+  </p>
+
+	<form action="{{accion}}" method="POST" accept-charset="utf-8" id='product-form'>
+    {% csrf_token %}
+    {{form.as_p}}
+		<input type="text" name="nombre" placeholder='Nombre de la categoría' value='{{categoria.nombre}}'>
+		
+    <textarea name="descripcion" placeholder='Descripción detallada de la categoría' class='editor' required>
+      {% if categoria.descripcion %}
+        {{categoria.descripcion|safe}}
+      {% else %}
+        Descripcion Detallada
+      {% endif %}
+    </textarea>
+		
+    <input type="submit" name="" value="Guardar Categoría" >
+	</form>
+
+    {% endblock %}
+
+    {% block scripts %}
+
+    <script src="{% static "js/editor.js" %}"></script>
+    <script src="{% static "js/panel/productos.js" %}"></script>
+	{% endblock %}

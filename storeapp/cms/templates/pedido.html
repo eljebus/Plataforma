@@ -1,0 +1,141 @@
+{% extends "adminTemplate.html" %}
+
+  {% block estilos %}
+{% load static from staticfiles %}
+
+	<link rel="stylesheet" href="{% static "css/editor.css" %}" />
+	<link rel="stylesheet" href="{% static "css/panel/detallePedido.css" %}" />
+	<style type="text/css">
+		input[type=search]{
+			display: none;
+		}
+		header h2{
+			width: 556px;
+		}
+	</style>
+ 
+  {% endblock %}
+
+	{% block content %}
+
+	 
+    <section id='contenedor-pedidos'>
+    	{% if Error %}
+    	<h2>{{errorLetrero}}</h2>
+    	{% else %}
+
+	    <div id='detalles'>
+
+	        <ul class='list-none'>
+	        	<li>
+					<h3 class='top-none'>Código: {{pedido.idpedidos}}</h3>
+					<h3 class='top-none bottom-none'>{{pedido.clientes.nombre}}</h3>
+	        		<br><label class='flaticon-elegant1 inline'></label> {{pedido.direccionenvio}}
+	        		<br>C.P.: {{pedido.cpe}}
+	        		<br> Fecha: {{pedido.fecha|date:"d/m/Y"}}
+
+	        	</li>
+	        	<li>
+	        		<ul class='list-none list-interno'>
+	        		
+	        			<li>
+	        				<h3 class='top-none bottom-none inline'> Status: <span id='status' class='color-verde'>{{pedido.status}}</span>
+	        				</h3>
+	        				{% ifequal pedido.status 'Pagado'%}
+	        					<p class='boton bgcolor-azul top-none bottom-none inline' id='completar' data-id='{{pedido.idpedidos}}'>Completar</p>
+	        				{% endifequal %}
+	        			</li>
+	        			<li>
+	    					<h4 class='top-none bottom-none inline'>Pago:</h4>
+			        		<label class='inline'>{{cargo.formapago}}</label>
+			        		&nbsp;&nbsp;
+			        		<h4 class='top-none bottom-none inline'><label class='flaticon-send5'></label></h4>
+			        		<label class='inline'> {{pedido.formaenvio.nombre}} ${% load humanize %}{{pedido.importeenvio|floatformat:2|intcomma}}
+			        		</label>
+
+	        			</li>
+	        			<li>
+	        				<h3 id='total'>
+	        					{% load humanize %}
+                     				Total: $ {{total|floatformat:2|intcomma}}
+	        				</h3>	
+							
+	        			</li>
+	        		
+	        		</ul>
+	        	
+	        	</li>
+	        </ul>
+	        <div id='comentario'>
+	        	{{pedido.comentarios|safe}}
+	        </div>
+
+	        	
+	        </div>
+
+	            
+	            <table id="pedidos" cellspacing="0">
+
+	            <tbody>
+
+	            <tr id="cabecera" height="20">
+	              <td >Producto</td>
+	              
+	              <td >Cantidad</td>
+	              <td >Precio Unitario</td>
+	              <td >Total:</td>
+	              
+
+	            </tr>
+	              {% for p in productos %}
+	              <tr>
+	                <td >
+
+	              		{{p.productos.nombre}}
+	              		<br><small>({{p.modelos.nombre}})</small>
+	                </td>
+	                <td >{{p.cantidad}}</td>
+	                <td >
+	                	{% load humanize %}
+                     	$ {{p.productos.precio|floatformat:2|intcomma}}
+	                </td>
+	         
+	                <td >
+
+
+	                	{% load humanize %}
+                     	$ {% widthratio p.productos.precio 1 p.cantidad %}
+
+	                </td>
+	                
+	              </tr>
+	             
+	            
+	              {% endfor%}
+	             </tbody>
+
+	            </table>
+	        {% endif %}
+	          
+        </section>
+
+        
+
+
+	
+ 
+
+    {% endblock %}
+
+
+
+
+
+
+    {% block scripts %}
+	
+    <script src="{% static "js/panel/completar.js" %}"></script>
+
+	{% endblock %}
+
+

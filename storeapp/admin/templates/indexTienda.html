@@ -1,0 +1,123 @@
+
+
+
+{% extends "plantilla1/template.html" %}
+    
+    {% block estilos %}
+    
+    {% load static from staticfiles %}
+    <link rel="stylesheet" type="text/css" href="{% static "css/tiendas/slider/idangerous.swiper.css" %}">
+    <link rel="stylesheet" type="text/css" href="{% static "css/tiendas/plantilla1/index.css" %}">
+    <link rel="stylesheet" href="{% static "" %}css/tema.min.css" />
+    {% endblock %}
+
+    {% block content %}
+
+      <div class="swiper-container">
+        <div class="swiper-wrapper">
+            <!--First Slide-->
+            {% for a in tienda.anuncios_set.all %}
+            <div class="swiper-slide"> 
+                <img src="{% static a.imagen %}" title="{{a.nombre}}">
+            </div>
+             {% empty %}
+              <style>
+               .swiper-container{
+                border:dashed 1px;
+               }
+              </style>
+                <center>
+                  <h3>
+                   <label class='icon-box-add'>
+                    Añade un Anuncio
+                   </label>
+                 </h3> 
+                </center>
+            
+            {%  endfor %}
+            
+            
+           
+        </div>
+      </div>
+      <center>
+        <div class='pagination'></div>
+      </center>
+      
+    
+        
+            
+            {% for p in productos %}
+
+              {% if forloop.counter|divisibleby:"4" %}
+                <figure class='productos' id='ultimo'>
+              {% else %}
+                <figure class='productos' >
+              {%  endif %}
+              
+                  <img src="{% static p.archivo %}">
+
+                  <figcaption>
+                    <p class='nombre top-none bottom-none'> {{p.nombre}}</p>
+                    <div class='precio'>
+                       $ {{p.precio}}
+                     </div>
+                     <a href="/ProductosTienda/{{p.idproductos}}/" title="Agregar {{p.nombre}}">
+                       <div class='carrito boton'>
+                        
+                          
+                          Más Detalles <label class='icon-point-right'></label>
+                       
+                       </div> 
+                     </a>
+                   </figcaption>
+ 
+                </figure>
+                {% empty %}
+                <h3>Sin articulos Registrados</h3>
+            {% endfor %}
+              
+              
+            </aside>
+
+
+              <center>
+                <a href="/Productos/" title="Todos Nuestros Productos">
+                  <p class='boton bgcolor-gris'>
+
+                    Ver todos los artículos<label class=' icon-arrow-right inline iconos medio'></label>
+                  </p>
+
+                </center>
+              </a>
+            
+
+       
+  
+  {% endblock %}
+
+  {% block scripts %}
+
+  <script src="{% static "js/tiendas/sliders/idangerous.swiper.js" %}"></script>
+  <script>
+
+  $(document).on('ready',function(){
+        $('.swiper-container').swiper({
+            //Your options here:
+            mode:'horizontal',
+            loop: true,
+            autoplay:5000,
+            shortSwipes:true,
+            useCSS3Transforms:true,
+            pagination:'.pagination',
+            createPagination:true,
+            paginationClickable:true,
+            calculateHeight:true
+            //etc..
+          });
+       
+  });
+
+  </script>
+
+  {% endblock %}

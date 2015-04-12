@@ -1,0 +1,100 @@
+{% extends "adminTemplate.html" %}
+
+  {% block estilos %}
+    
+    {% load static from staticfiles %}
+     <link rel="stylesheet" href="{% static "css/panel/pedidos.css" %}" />
+
+    <style>
+    .left{
+      text-align: left;
+      background: white;
+      padding: 10px
+     }  
+    </style>
+  {% endblock %}
+
+    {% block content %}
+       <section id='contenedor-tabla'>
+
+            
+            <table id='pedidos' cellspacing='0'>
+
+            <tr  id='cabecera' height='20'>
+              <td width='70' >Codigo</td>
+              <td width='250' >Nombre</td>
+              <td width='300' >
+                Dirección
+              </td>
+          
+              <td>
+                Categoría
+              </td>      
+              <td width='60' >Eliminar</td>
+            </tr>
+              
+              {% for c in clientes %}
+              <tr>
+                <td >{{c.idclientes}}</td>
+                <td >{{c.nombre}}</td>
+                <td class='left'>
+                    <label class='flaticon-elegant1 inline'></label> {{c.domicilio|safe}}<br>
+                    <ul>
+                      <li> {{c.estado}}</li>
+                      <li>CP:{{c.cp}}</li>
+                      <li>{{c.mail}}</li>
+                    </ul>
+              
+                    
+                </td>
+                <td >
+                  {{c.tipo}}
+                </td>
+                
+                <td > 
+                  <label class='icon-happy iconosp color-verde inline delete' data-id='{{c.idclientes}}' data-elemento='Clientes'></label>
+
+                </td>
+              </tr>
+              {% empty %}
+              <tr>
+                <td colspan="5" >
+                  <label class="icon-sad color-rojo"></label> No se encontraron Clientes
+                </td>
+              </tr>
+              {% endfor %}
+              
+            
+
+            </table>
+            <div  id='paginas'>
+                {% if clientes.has_previous %}
+                    <a href="/clientesTienda/?page={{ clientes.previous_page_number }}">
+          
+                      <label class='icon-arrow-left inline'></label></a>
+                {% endif %}
+
+                <span class="current">
+                    {{ clientes.number }} de {{ clientes.paginator.num_pages }}
+                </span>
+
+                {% if clientes.has_next %}
+                    <a href="/clientesTienda/?page={{ clientes.next_page_number }}">
+                      <div class='right inline'>
+                        <label class='icon-arrow-left '></label>
+                      </div>
+                      
+                    </a>
+                {% endif %}
+            </div>
+          
+        </section>
+    
+   
+    {% endblock %}
+
+  {% block scripts %}
+
+    
+  <script src="{% static "js/panel/eliminar.js" %}"></script>
+  {% endblock %}

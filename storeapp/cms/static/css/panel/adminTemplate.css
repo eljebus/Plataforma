@@ -1,0 +1,662 @@
+
+
+input,textarea,select
+{
+	
+	padding: 0.25em;
+	border:none;
+	border-bottom: solid 1px #a5a5a5;
+	width: 44.2%;
+	margin-right:20px;
+	background: transparent; 
+	outline: none;
+	padding-left: 0;
+	padding-right: 0;
+	font-size: 1.05em;
+	margin-bottom: 2em;
+	font-family: 'Ubuntu', sans-serif;
+	vertical-align: top;
+
+}
+input[type='submit']
+{
+	margin-left: 56%;
+	transition: all ease 0.25s;
+	background-color: #3e3e40;
+	border: none;
+	color: #fff;
+	border-radius: 0px;
+	padding: 10px 20px;
+	font-size: 16px;
+	font-family: 'Ubuntu', sans-serif;
+	font-weight: bold;
+	cursor: pointer;
+	margin-top: 2em;
+	cursor: pointer ;
+
+}
+
+input:focus,select:focus{
+	box-shadow:         0px 1px 9px 0px rgba(50, 50, 50, 0.27);
+	background: white;
+	color:black;
+	padding-left: 5px;
+	box-sizing:border-box;
+}
+input[type='submit']:hover
+{
+	background-color:#1e8bc3;
+	color: white;
+}
+
+
+#paginas
+{
+	margin-top: 2em;
+	text-align: center;
+	font-weight: bold;
+}
+#paginas a{
+	color:#1e8bc3;
+}
+#container{
+	display: inline-block;
+	margin-left: 15px;
+	margin-top: 15px;
+}
+
+.right {
+	-webkit-transform: rotate(180deg);
+	width: 17px;
+	margin-top: -5px
+}
+.manita{
+	cursor: pointer;
+}
+.doble
+{
+	width: 24%
+}
+.triple
+{
+	width: 15%
+}
+.triada
+{
+	width: 30.7%;
+}
+
+.cuarteto{
+	width: 12%;
+}
+
+.delete
+{
+	cursor: pointer;
+}
+.add-item
+{
+	cursor: pointer
+
+}
+.add-item .icon-plus
+{
+	transition:all ease 0.25s;
+}
+.add-item:hover .icon-plus
+{
+	font-size: 1.05em;
+}
+textarea
+{
+	height: 100px;
+}
+a{
+	text-decoration: none;
+	color:white;
+}
+.list-none
+{
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+.margin-none
+{
+	margin-top: 0;
+	margin-bottom: 0;
+}
+.color-blanco{
+	color:white;
+}
+
+.color-azul
+{
+  
+ color: #1e8bc3;
+
+}
+
+.bgcolor-azul{
+	background: #1e8bc3;
+}
+
+.color-verde
+{
+ color: #35bc7a;
+}
+.bgcolor-verde
+{
+	background: #35bc7a;
+}
+
+.color-rojo
+{
+  color: #f05a49;
+}
+.bgcolor-rojo
+{
+	background: #f05a49;
+}
+
+.color-amarillo
+{
+  color: #ff9f00;
+}
+
+.color-naranja
+{
+  color: #f86924;
+}
+.bgcolor-naranja{
+	background-color: #f86924;
+}
+.inline
+{
+	display: inline-block;
+}
+.centrado
+{
+	text-align: center;
+}
+.negritas
+{
+	font-weight: bold;
+}
+.iconosp
+{
+	font-size: 1.5em;
+	font-weight: bold;
+	text-shadow: -1px -1px 3px rgba(255, 255, 255, 1);
+}
+.utimo
+{
+	margin-right: 0;
+}
+.form-interno
+{
+	width: 100%;
+}
+
+.item{
+	
+		padding: 5px;
+		background: white;
+		color: #282f33;
+		margin: 0;
+		margin-bottom: 0em;
+}
+.icon-happy{
+	trasition:all ease 0.25s;
+}
+.icon-happy:hover:before
+{
+	content: "\e62f";
+	color:#f05a49;
+}
+
+.centrado{
+	text-align: center
+}
+.boton{
+	padding: 5px;
+	width:250px;
+	cursor: pointer;
+	text-align: center;
+	color: white;
+	font-weight: bold
+}
+#confirmacion{
+	display: none
+}
+.abajo{
+	vertical-align: bottom;
+}
+
+.list-none
+{
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+.margin-none
+{
+	margin-top: 0;
+	margin-bottom: 0;
+}
+.color-blanco{
+	color: white
+}
+
+.color-azul
+{
+  
+ color: #1e8bc3;
+
+}
+.color-gris{
+	color: #3c474d;
+}
+
+.color-verde
+{
+ color: #35bb79;
+}
+
+.color-rojo
+{
+  color: #f05a49;
+}
+.bgcolor-rojo
+{
+	background-color: #f05a49;
+	color:white;
+	padding: 0.25em;
+		
+}
+.color-amarillo
+{
+  color: #ff9f00;
+}
+
+.color-naranja
+{
+  color: #f86924;
+}
+.inline
+{
+	display: inline-block;
+	vertical-align: middle;
+}
+.top-none
+{
+	margin-top: 0;
+}
+.bottom-none
+{
+	margin-bottom: 0;
+}
+.top{
+	vertical-align: top
+}
+.punteado{
+	border: dashed 1px;
+	padding: 5px;
+}
+body
+{
+	background: #ebeff2;
+	font-family: 'Ubuntu', sans-serif;
+	font-size: 16px;
+	margin: 0;
+	padding: 0;
+			
+}
+
+header
+{  
+	margin-top: 1em;
+}
+
+header h2
+{
+	font-size: 3em;
+	font-family: 'Ubuntu', sans-serif;
+	font-weight: bold;
+
+	margin: 0px;
+	display: inline-block;
+	width: 24.5%;
+	height: 100%;
+	margin-left: 10px;	
+	vertical-align: middle;
+	color: #3c474d;
+}
+header input
+{
+	padding: 0.25em;
+	border:none;
+	border-bottom: solid 1.5px #a5a5a5;
+	width: 200px;
+	margin-right:20px;
+	background: transparent; 
+	outline: none;
+	padding-left: 0;
+	padding-right: 0;
+	font-size: 1.05em;
+	margin-bottom: 0em;
+	vertical-align: middle;
+	background: url(/static/imagenes/search.png) no-repeat 99% center;
+}
+header input:focus 
+{
+	background:transparent;
+}
+
+table
+{
+  
+  width: 100%;
+  height: auto;
+}
+
+
+footer
+{
+	width: 100%;
+	background-color: #282f33;
+	display: block;
+	position: relative;
+	overflow: hidden;
+	height: 80px;
+	margin-bottom: -1.2em;
+}
+
+aside
+
+{
+	float: left;
+
+	width: 26.4%;
+	height: auto;
+
+	margin-top: 10px;
+}
+
+label
+{
+  font-family: 'Ubuntu', sans-serif;	
+}
+
+nav
+{
+ width: 100%;
+ overflow: hidden;
+
+
+}
+
+nav ul li ul
+{
+	list-style: none;
+
+}
+
+
+
+aside .list-none
+{
+  font-size: 0;
+  cursor: pointer;
+}
+
+aside #primero
+{
+ margin-top: 0px;
+}
+
+aside nav .list-none li
+{
+	font-size: 15px;
+	width: 100%;
+	
+	margin-top: 10px;
+	
+	background-color: white;
+	border-radius:5px;
+	
+	padding: 15px;
+
+	height: auto;
+	font-weight: bold;
+	box-sizing:border-box;
+	text-align: left;
+	color: black;
+	transition:all ease 0.5s;
+}
+nav .list-none li ul li
+{
+	margin: 0;
+	padding: 3px;
+	display: block;
+	width: 70%;
+	border: 1px #fff solid;
+	font-weight: normal;
+	margin-bottom: 1px;
+
+}
+aside nav .list-none li:hover
+{
+	padding-left: 1.5em;
+	cursor: pointer;
+}
+
+
+
+aside nav .list-none li ul li:hover
+{
+	padding-left:0.5em;
+	box-shadow: none;
+	background:#ebeff2;
+	border-radius:2px; 
+	color: #282f33;
+}
+aside nav .list-none li ul .active{
+	padding-left:0.5em;
+	box-shadow: none;
+	background:#ebeff2;
+	border-radius:2px; 
+	color: #282f33;
+	border: 1px #a5a5a5 solid;
+	box-shadow:         0px 0px 4px 0px rgba(50, 50, 50, 0.21);
+}
+
+
+#contenedor
+{	
+    
+	margin: auto;
+	margin-bottom: 2em;
+	margin-top: 1em;
+	width: 90%;
+	padding: 1em;
+	overflow: hidden;
+}
+
+
+#inferior
+{
+	
+	color: white;
+	width: 90%;
+	margin: auto;
+	padding: 0.25em;
+}
+#superior
+{
+ background: #282f33;
+ width: 100%;
+ height: 15px;
+}
+
+#logo
+{   max-height: 150px;
+	width: 300px;
+	display: inline-block;
+	vertical-align: bottom;
+	padding: 10px;
+	overflow: hidden;
+	
+}
+#logo img
+{
+	width: 100%;
+	height: 100%
+	
+}
+
+
+#user
+{
+	margin-bottom: 0px;
+	background: #1e8bc3;
+	display: inline-block;
+	vertical-align: middle;
+	padding: 1em;
+	padding-top: 0.5em;
+	padding-bottom:0.5em;
+	box-sizing:border-box;
+	width: 29%;
+	color:white;
+
+}
+
+
+#user #name-user
+{
+	min-width: 170px;
+}
+
+
+
+#contenedor-tabla
+{
+	display: inline-block;
+
+	width: 73%;
+	height: auto;
+	
+	margin-top: 10px;
+}
+#imagenes-form 
+{
+	width: 66.5%;
+	vertical-align: top;
+	transition: all ease 0.3s;
+	border: dashed 1.5px #a5a5a5;
+	padding: 5px;
+	box-sizing:border-box;
+	font-size: 0;
+}
+#imagenes-form li
+{
+	width: 103px;
+	display: inline-block;
+	height: 103px;
+	vertical-align: top;
+	text-align: center;
+	position: relative;
+	overflow: hidden;
+
+}
+#imagenes-form li img
+{
+	width: 100%;
+	height: 100%;
+}
+
+#tumbs-container li{
+	border:dashed 1px white;
+	margin-right: 11px;
+}
+
+#imagenes-form .ultimo
+{
+	background-color: #f86924;
+	padding: 1em;
+	box-sizing:border-box;
+	color: white;
+	cursor: pointer;
+	margin-right: 0;
+	font-size: 16px;
+}
+#imagenes-form .ultimo .icon-plus
+{
+	transition: all ease 0.3s;
+}
+#imagenes-form .ultimo:hover .icon-plus
+{
+	font-size: 2.3em;
+	
+}
+#imagenes-form img
+{
+	width: 100%;
+	height: 100%;
+}
+#imagenes-form .icon-cross
+{
+	position: absolute;
+	top:5px;
+	right: 5px;
+	font-size: 1.7em;
+	background: white;
+	border-radius: 50%;
+	cursor: pointer;
+	transition: all ease 0.3s;
+}
+#imagenes-form .icon-cross:hover
+{
+	font-size: 2em;
+}
+
+
+
+#form-interno select
+{
+	min-height: 100px;
+
+}
+.iconos
+{
+	font-size: 2em;
+	margin-right: 10px;
+}
+.listo
+{
+	border:dashed 1px;
+	text-align: center;
+	padding: 0.5em;
+	color: white;
+}
+.nospace{
+	padding: 0;
+}
+.subrayado{
+	text-decoration: underline;
+}
+
+
+
+@keyframes modificar{
+	0% { transform: rotate(0deg); } 
+	100% {transform: rotate(720deg); } 
+}
+.icon-cog:hover{
+	cursor:pointer;
+	animation: modificar ease;
+	animation-duration: 5s;
+	animation-fill-mode:forwards;
+}

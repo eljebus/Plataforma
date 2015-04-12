@@ -1,0 +1,73 @@
+body{
+	color: #282f33
+}
+#mapa{
+	width: 100%;
+	margin-bottom: 1em;
+	margin-top: 1em;
+	min-height: 250px;
+	border: dashed 1px;
+}
+
+#content-info{
+	margin-top: 1em;
+}
+#content-info .inline{
+	vertical-align: top;
+}
+input{
+	width: 80%
+}
+#descripcion{
+	width: 44%;
+	margin-right: 3%;
+}
+#form-contact{
+	width: 52%
+}
+textarea{
+	min-height: 123px;
+	background-color: #f0f0f0;
+	border:none;
+	padding: 1em;
+	box-sizing:border-box;
+}
+#enviar{
+	margin-left: 61%
+}
+
+
+@media (max-width: 1050px){
+
+	input[type='submit'],#enviar{
+		margin-left: 0%;
+	
+	}
+	
+	#form-contact input{
+		width: 100%;
+	}
+
+
+}
+@media (max-width: 860px){
+
+
+	#descripcion,#form-contact{
+		width: 100%;
+
+	}
+	#descripcion{
+		margin-bottom: 2em
+	}
+	input[type='submit'],#enviar{
+		margin-left: 0;
+	}
+	.ui-dialog {
+		width: 100px;
+	}
+
+	
+
+}
+

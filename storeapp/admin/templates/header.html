@@ -1,0 +1,56 @@
+  <header>
+    <nav>
+      <ul id='menuGrande'>
+          <li id='inicio'>
+            <a href='/'>
+              {% load static from staticfiles %}
+              <img src="{% static "imagenes/wido.png" %}">
+            </a>
+          </li>
+          <li id='home'>
+            <a href='/'>
+              <label class='icon-home iconos'></label>
+              <p>INICIO</p>
+            </a>
+          </li>
+              
+          <li  id='demo'>
+            <a href="/Galeria/" class='color-azul'>
+              <label class='icon-users iconos'></label>
+              <p>CLIENTES</p>
+            </a>
+                  
+          </li>
+              
+          <li id='clientes'>
+            <a href="/ingresar/True/">
+              <label class='icon-accessibility iconos'></label>
+              <p>ENTRAR</p>
+            </a>
+          </li>
+              
+          <li id='articulos'>
+            <a href="/articulo/">
+              <label class='icon-file2 iconos'></label>
+              <p>ARTÍCULOS</p>
+            </a>
+          </li>
+              
+          <li id='final' class='ultimo'>
+            <a href="">
+              <label class='icon-bubbles2 iconos'></label>
+              <p>CONTACTO</p>
+            </a>
+          </li>
+      </ul>
+
+      <select id='menuPequeno'>
+        <option value="">MENÚ</option>
+        <option value="/">INICIO</option>
+        <option value="/Galeria/">CLIENTES</option>
+        <option value="/ingresar/True/">ENTRAR</option>
+        <option value="/articulo/">ARTÍCULOS</option>
+        
+      </select>
+    </nav>
+</header>

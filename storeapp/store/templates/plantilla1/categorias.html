@@ -1,0 +1,84 @@
+
+
+
+{% extends "plantilla1/template.html" %}
+    
+    {% block estilos %}
+       {% load static from staticfiles %}
+      <link rel="stylesheet" type="text/css" href="{% static "css/tiendas/plantilla1/index.css" %}">
+      <link rel="stylesheet" href="{% static "css/tema.min.css" %}" />
+      <link rel="stylesheet" href="{% static "css/tiendas/plantilla1/categorias.css" %}" />
+    {% endblock %}
+
+    {% block content %}
+
+    <section id="content">
+      <h1 class='bottom-none'>{{categoria}}</h1>
+
+           {% for p in productos %}
+
+            {% if forloop.counter|divisibleby:"4" %}
+              <figure class='productos' id='ultimo'>
+            {% else %}
+              <figure class='productos' >
+            {%  endif %}
+            
+                <img src="{% static p.archivo %}">
+
+                <figcaption>
+                  <p class='nombre top-none bottom-none'> {{p.nombre}}</p>
+                  <div class='precio'>
+                     $ {{p.precio}}
+                   </div>
+                       <a href="/ProductosTienda/{{p.idproductos}}/" title="Agregar {{p.nombre}}">
+                       <div class='carrito boton'>
+                        
+                          
+                        Más Detalles <label class='icon-point-right'></label>
+                       
+                       </div> 
+                     </a>
+                 </figcaption>
+
+              </figure>
+              {% empty %}
+                  <h2>No se encontraron articulos  <label class='icon-sad color-naranja'></label></h2>
+            {% endfor %}
+              
+          <div  id='paginas'>
+              {% if productos.has_previous %}
+                  <a href="/Productos/?page={{ productos.previous_page_number }}"><label class='icon-arrow-left color-azul'></label></a>
+              {% endif %}
+
+              <span class="current">
+                  {{ productos.number }} de {{ productos.paginator.num_pages }}
+              </span>
+
+              {% if productos.has_next %}
+                  <a href="/Productos/?page={{ productos.next_page_number }}">
+                    <div class='right inline'>
+                      <label class='icon-arrow-left color-azul'></label>
+                    </div>
+                    
+                  </a>
+              {% endif %}
+          </div>
+        
+    </section>
+
+
+
+      
+      
+      
+      
+   
+  
+  {% endblock %}
+
+  {% block scripts %}
+  
+    
+  
+
+  {% endblock %}

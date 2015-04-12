@@ -1,0 +1,12 @@
+  <!--<ul class='list-none' id='paginas'>
+            {% for i in paginas %}
+              {% if i==paginaActiva %}
+                 <li class='activo'>{{i}}</li>
+              {% else %}
+                  <li>{{i}}</li>
+              {% endif %}
+             
+              {% empty %}
+              <li>No se encontraron datos</li>
+            {% endfor %}
+  </ul>-->

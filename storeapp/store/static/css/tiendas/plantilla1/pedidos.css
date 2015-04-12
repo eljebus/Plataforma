@@ -1,0 +1,211 @@
+body
+{
+	background: #ebeff2;
+	font-family: 'Ubuntu', sans-serif;
+	font-size: 16px;
+	margin: 0;
+	padding: 0;
+			
+}
+
+header
+{  
+	margin-top: 1em;
+	
+}
+
+h2
+{
+	font-size: 3em;
+	font-family: 'Ubuntu', sans-serif;
+	font-weight: bold;
+
+	margin: 0px;
+
+	display: inline-block;
+	margin-bottom: 0px;
+
+	
+	width: 47%;
+	height: 100%;
+}
+table
+{
+  
+  width: 100%;
+  height: auto;
+}
+
+
+footer
+{
+	width: 100%;
+	background-color: #282f33;
+	display: block;
+	position: relative;
+	overflow: hidden;
+	height: 80px;
+}
+
+aside
+
+{
+	float: left;
+
+	width: 26.4%;
+	height: auto;
+
+	margin-top: 10px;
+}
+
+label
+{
+  font-family: 'Ubuntu', sans-serif;	
+}
+
+nav
+{
+ width: 100%;
+ overflow: hidden;
+
+
+}
+
+nav ul li ul
+{
+	list-style: none;
+
+}
+
+
+
+aside .list-none
+{
+  font-size: 0;
+  
+
+}
+
+aside #primero
+{
+ margin-top: 0px;
+}
+
+aside nav .list-none li
+{
+	font-size: 15px;
+	width: 100%;
+	
+	margin-top: 10px;
+	
+	background-color: white;
+	
+	padding: 15px;
+
+	height: auto;
+	
+	box-sizing:border-box;
+	text-align: left;
+	color: black;
+	font-weight: bold;
+}
+nav .list-none li ul li
+{
+	margin: 0;
+	padding: 3px;
+}
+
+
+#contenedor
+{	
+    
+	margin: auto;
+	margin-bottom: 2em;
+	margin-top: 1em;
+	width: 90%;
+	padding: 1em;
+	overflow: hidden;
+}
+
+
+#inferior
+{
+	
+	color: white;
+	width: 90%;
+	margin: auto;
+	padding: 0.25em;
+}
+#superior
+{
+ background: #282f33;
+ width: 100%;
+ height: 15px;
+}
+
+
+
+
+
+#pedidos tr
+{
+  height: 80px;
+ 
+  background-color: white;
+}
+#pedidos #cabecera
+{
+    height: 50px;
+    background-color: white;
+    color: #808080;
+    font-weight: bold;
+    font-family: 'Ubuntu', sans-serif;
+    font-size: 1em;
+}
+
+
+#logo
+{   height: 100px;
+	width: 300px;
+	background:#1e8bc3;
+	display: inline-block;
+	vertical-align: bottom;
+	padding: 10px;
+	
+	
+}
+#logo img
+{
+	width: 100%;
+	height: 100%
+	
+}
+
+
+#user
+{
+ margin-bottom: 0px;
+ background: blue;
+
+  display: inline-block;
+  vertical-align: bottom;
+  
+  padding: 1em;
+  box-sizing:border-box;
+
+  width: 25.6%
+
+
+}
+
+
+
+#contenedor-tabla
+{
+	float: right;
+
+	width: 73%;
+	height: auto;
+	
+	margin-top: 10px;
+}

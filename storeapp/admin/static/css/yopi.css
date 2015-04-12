@@ -1,0 +1,183 @@
+		body{
+			background-image: url(../imagenes/backyopi.jpg);
+			background-size: 100%;
+			background-repeat: no-repeat;
+		
+		}
+		#content
+		{
+			width:100%;
+			padding-left: 1em;
+			padding-right: 1em;
+			box-sizing:border-box;
+
+		}
+
+		header{
+			max-width: 800px;
+			margin:auto;
+			margin-top: 2em;
+			overflow:  hidden;
+			background: rgba(255,255,255,0.8);
+			padding-bottom: 4em;
+			border-radius: 5px;
+			padding: 1em;
+			box-sizing:border-box;
+
+		}
+
+		h1{
+			font-family: 'Righteous', cursive;
+			font-size: 4em;
+
+		}
+		h2,h3{
+			font-family: 'Amaranth', sans-serif;
+		}
+		.naranja{
+			color:#FF4700;
+		}
+
+		.derecho{
+
+			width: 73%;
+			float:right;
+
+		}
+		.top-none
+		{
+			margin-top: 0;
+		}
+		.bottom-none{
+			margin-bottom: 0;
+		}
+		button
+		{
+			background-image: url('../imagenes/botonyopi.png');
+			background-size: 100% 100%;
+			border: none;
+			padding: 1em;
+			padding-bottom: 0.5em;
+			padding-top: 0.5em;
+			font-family: 'Amaranth', sans-serif;
+			color:white;
+			font-size: 1.2em;
+			width: 253px;
+			margin-right: 1em;
+			cursor: pointer;
+
+		}
+		.izquierdo{
+			float: left;
+			width: 25%;
+			overflow: hidden;
+			margin-right: 2%;
+			text-align: right;
+		}
+		#logo
+		{
+			width: 150px;
+			margin-top: 4em
+		}
+		#clientes{
+			font-family: 'Amaranth', sans-serif;
+
+		}
+		.fb{
+
+			width:100%;
+			background: #1e62a9;
+			background-image: none;
+			border: 1px solid #143f72;
+			border-bottom-width: 2px;
+		}
+
+		#usuarios{
+			margin-top: 17em;
+
+		}
+		#usuarios ul{
+			list-style: none;
+			padding: 0;
+			margin: 0;
+	
+
+		}
+		#usuarios li
+		{
+			display:inline-block;
+			width:10%;
+		}
+		#usuarios li img{
+			border-radius: 50%;
+			border:solid 3px gray;
+			cursor:pointer;
+		}
+		.dialogos{
+			display:none;
+		}
+
+@media (max-width: 850px) {
+
+	.izquierdo{
+		width:160px; 
+	}
+	.derecho{
+		width: 75%;
+	}
+
+}
+@media (max-width: 829px) {
+	.izquierdo,.derecho{
+		width: 100%;
+		text-align: center;
+	}
+	#usuarios{
+		margin-top: 29em;
+	}
+	h1{
+		margin-top: 0
+	}
+
+}
+
+
+@media (max-width: 730px) {
+
+	body{
+		background-size: 220%;
+		background-position:center; 
+	}
+	#usuarios li{
+		width: 20%;
+		margin-bottom: 1em
+	}
+
+}
+
+@media (max-width: 628px) {
+	button{
+		width: 90%;
+		margin-bottom: 1em
+	}
+}
+@media (max-width: 430px) {
+
+	body{
+		background-size: 453%;
+ 
+	}
+	#usuarios li{
+		width: 30%;
+		margin-bottom: 1em
+	}
+
+}
+@media (max-width: 344px) {
+
+	#usuarios li{
+		width: 49%;
+		margin-bottom: 1em
+	}
+}
+
