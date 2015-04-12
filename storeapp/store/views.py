@@ -82,7 +82,7 @@ def Correo(request):
                 dic['Error']='false'
 
             except Exception, e:
-                dic['Error']='true'
+                raise e
             return HttpResponse(
                 json.dumps(dic),
                 content_type='application/json;charset=utf8') 

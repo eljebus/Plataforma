@@ -65,7 +65,7 @@ def home(request):
 		    datos['productos']	= productos
 		    datos['anuncios']	= datos['tienda'].anuncios_set.all()
 		    render='indexTienda.html'
-		    
+
 	   	except Exception, e:
 			raise e
    	
@@ -221,36 +221,36 @@ def crearTienda(request):
 						site.save()
 
 
-						cliente=Cliente()
-						cliente.nombre=request.POST['nombreCliente']
-						cliente.telefono='Desconocido'
-						cliente.mail=request.POST['mail']
-						cliente.sexo='N'
-						cliente.fecha=date.today()
-						cliente.usuario=0
-						cliente.activo=1
+						cliente 			= Cliente()
+						cliente.nombre 		= request.POST['nombreCliente']
+						cliente.telefono 	= 'Desconocido'
+						cliente.mail 		= request.POST['mail']
+						cliente.sexo 		= 'N'
+						cliente.fecha 		= date.today()
+						cliente.usuario 	= 0
+						cliente.activo 		= 1
 						cliente.save()
 
-						admin=Administrador()
-						admin.nombre=request.POST['nombreCliente']
-						admin.login=request.POST['subdominio']+str(uuid.uuid4().hex)[:3]
-						admin.password=str(uuid.uuid4().hex)[:8]
-						admin.cliente=str(cliente.idclientes)
-						admin.activo=1
+						admin 				= Administrador()
+						admin.nombre 		= request.POST['nombreCliente']
+						admin.login 		= request.POST['subdominio']+str(uuid.uuid4().hex)[:3]
+						admin.password 		= str(uuid.uuid4().hex)[:8]
+						admin.cliente 		= str(cliente.idclientes)
+						admin.activo 		= 1
 						admin.save()
 
-						tienda=Tienda()
-						tienda.nombre=request.POST['nombreTienda']
-						tienda.rfc='RFC Desconocido'
-						tienda.logo='Subir logo'
-						tienda.ubicacion='Domicilio Desconocido'
-						tienda.direccion='Domicilio Desconocido'
-						tienda.mail='mail Desconocido'
-						tienda.telefono='telefono desconocido'
-						tienda.descripcion='Desconocido'
-						tienda.activo=0
-						tienda.administrador=admin
-						tienda.site_id=int(site.id)
+						tienda 				= Tienda()
+						tienda.nombre 		= request.POST['nombreTienda']
+						tienda.rfc 			= 'RFC Desconocido'
+						tienda.logo 		= 'Subir logo'
+						tienda.ubicacion 	= 'Domicilio Desconocido'
+						tienda.direccion 	= 'Domicilio Desconocido'
+						tienda.mail 		= 'mail Desconocido'
+						tienda.telefono 	= 'telefono desconocido'
+						tienda.descripcion 	= 'Desconocido'
+						tienda.activo 		= 0
+						tienda.administrador= admin
+						tienda.site_id 		= int(site.id)
 						tienda.save()
 
 						parametros={
@@ -262,79 +262,79 @@ def crearTienda(request):
 
 						setMensaje(parametros)
 
-						stock=Stock()
-						stock.fecha=date.today()
-						stock.descripcion='Stock de la tienda '+request.POST['nombreTienda']
-						stock.tienda=tienda
+						stock 				= Stock()
+						stock.fecha 		= date.today()
+						stock.descripcion 	= 'Stock de la tienda '+request.POST['nombreTienda']
+						stock.tienda 		= tienda
 						stock.save();
 
-						tp=Tipocliente()
-						tp.nombre='Casual'
-						tp.descripcion='Cliente Casual de tienda '+unicode(request.POST['subdominio'])
-						tp.prioridad=1
-						tp.stock_idstock=stock
+						tp 					= Tipocliente()
+						tp.nombre 			= 'Casual'
+						tp.descripcion 		= 'Cliente Casual de tienda '+unicode(request.POST['subdominio'])
+						tp.prioridad 		= 1
+						tp.stock_idstock 	= stock
 						tp.save()
 
 
-						contrato=Contrato()
-						contrato.inicio=date.today()
-						current_date=date.today()
+						contrato 			= Contrato()
+						contrato.inicio 	= date.today()
+						current_date 		= date.today()
 						"""new_month=divmod(current_date.month-1+1, 12)
 						new_month+=1
 						current_date=current_date.replace(year=current_date.year+carry, month=new_month)"""
 
 
-						contrato.fin=date.today()+timedelta(days=7)
-						contrato.fecha=date.today()
-						contrato.tienda=str(tienda.idtienda)
+						contrato.fin 		= date.today()+timedelta(days=7)
+						contrato.fecha 		= date.today()
+						contrato.tienda 	= str(tienda.idtienda)
 						contrato.clientes_idclientes=cliente
-						contrato.activo=1
+						contrato.activo 	= 1
 						contrato.save()
 
-						privilegio=Privilegios()
+						privilegio 			= Privilegios()
 						#privilegio.nivel=request.POST['planes']
-						privilegio.nivel='Bronce'
-						privilegio.descripcion='Conocida'
-						privilegio.activo=1
-						privilegio.contrato=contrato
+						privilegio.nivel 	= 'Bronce'
+						privilegio.descripcion = 'Conocida'
+						privilegio.activo 	= 1
+						privilegio.contrato = contrato
 						privilegio.save()
 
 
-						ct=ClientesTiendas()
-						ct.clientes=cliente
-						ct.tiendas=str(tienda.idtienda)
-						ct.activo=1
+						ct 					= ClientesTiendas()
+						ct.clientes 		= cliente
+						ct.tiendas 			= str(tienda.idtienda)
+						ct.activo 			= 1
 						ct.save();
 
-						conjunto=Conjunto()
-						conjunto.tienda=int(tienda.idtienda)
-						conjunto.fecha=date.today()
-						conjunto.activo=1
-						conjunto.cms=Cms.objects.get(idcms=1)
+						conjunto 			= Conjunto()
+						conjunto.tienda 	= int(tienda.idtienda)
+						conjunto.fecha 		= date.today()
+						conjunto.activo 	= 1
+						conjunto.cms 		= Cms.objects.get(idcms=1)
 						conjunto.save()
 
-						secciones=Secciones()
-						secciones.nombre='Pie'
-						secciones.titulo='Pie de Pagina'
-						secciones.contenido='plantilla1/footer.html'
-						secciones.activo=1
-						secciones.conjunto=conjunto
+						secciones 			= Secciones()
+						secciones.nombre 	= 'Pie'
+						secciones.titulo 	= 'Pie de Pagina'
+						secciones.contenido = 'plantilla1/footer.html'
+						secciones.activo 	= 1
+						secciones.conjunto 	= conjunto
 						secciones.save()
 
-						secciones=Secciones()
-						secciones.nombre='Cabecera'
-						secciones.titulo='Cabecera de Pagina'
-						secciones.contenido='plantilla1/header.html'
-						secciones.activo=1
-						secciones.conjunto=conjunto
+						secciones 			= Secciones()
+						secciones.nombre 	= 'Cabecera'
+						secciones.titulo 	= 'Cabecera de Pagina'
+						secciones.contenido = 'plantilla1/header.html'
+						secciones.activo 	= 1
+						secciones.conjunto 	= conjunto
 						secciones.save()
 
-						secciones=Secciones()
-						secciones.nombre='Cuerpo'
-						secciones.titulo='Cuerpo de Pagina'
-						secciones.contenido='Conocido'
-						secciones.activo=1
-						secciones.conjunto=conjunto
+						secciones 			= Secciones()
+						secciones.nombre 	= 'Cuerpo'
+						secciones.titulo 	= 'Cuerpo de Pagina'
+						secciones.contenido = 'Conocido'
+						secciones.activo 	= 1
+						secciones.conjunto 	= conjunto
 						secciones.save()
 
 
