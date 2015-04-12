@@ -744,7 +744,7 @@ def pagoOxxo(request):
         pedido                          = request.session['pedido']
 
         cargo                           = Cargos()
-        cargo.idcarg o                  = request.POST['idcargo']
+        cargo.idcargo                  = request.POST['idcargo']
         cargo.fecha                     = datetime.datetime.now()
         cargo.status                    = 'P'
         cargo.importe                   = float(pedido.importe)+float(pedido.importeenvio)
